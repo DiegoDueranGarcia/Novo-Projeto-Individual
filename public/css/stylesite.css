@@ -1,0 +1,424 @@
+@font-face {
+    font-family: MotoVerse;
+    src: url(../Fontes/moto_verse/moto-verse.ttf);
+}
+
+@font-face {
+    font-family: BlackLive;
+    src: url(../Fontes/a_black_lives/aBlackLives.ttf);
+}
+
+@font-face {
+    font-family: LemonMilk;
+    src: url(../Fontes/lemon_milk/LEMONMILK-Light.otf);
+}
+
+@font-face {
+    font-family: LemonTexto;
+    src: url(../Fontes/lemon_milk/LEMONMILK-Regular.otf);
+}
+
+
+* {
+    margin: 0px;
+    padding: 0%;
+    max-width: 100%;
+
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+#navbar h1 {
+    font-family: MotoVerse;
+    color: #FF8E00;
+}
+
+
+
+
+.entrada {
+    display: flex;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.entrada img {
+    width: 100%;
+    height: 90vh;
+    margin: 0;
+
+
+}
+
+.entrada p {
+    display: flex;
+    position: absolute;
+
+    color: #FF8E00;
+
+    font-family: MotoVerse;
+    font-size: 100px;
+
+    text-shadow: #000000 10px 10px 5px;
+}
+
+.entrada b {
+    display: flex;
+    position: absolute;
+    width: 60%;
+
+    margin-top: 10%;
+    font-size: larger;
+    color: #ffffff;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    text-shadow: #000000 5px 5px 5px;
+}
+
+
+
+#navbar {
+    display: flex;
+    width: 100%;
+    height: 80px;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #ffffff;
+    position: sticky;
+    top: 0%;
+    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.5);
+    font-family: Arial, Helvetica, sans-serif;
+
+
+}
+
+#navbar img {
+    width: 50px;
+    margin-right: 20px;
+}
+
+#navbar ul {
+    display: flex;
+    width: 80%;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+#navbar a {
+    text-decoration: none;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    height: 50px;
+    width: 100px;
+}
+/* 
+#navbar a:hover {
+
+    display: flex;
+    justify-content: center;
+
+    background-color: #15141494;
+} */
+
+#navbar li {
+    display: flex;
+    justify-content: space-around;
+    color: #000000;
+}
+
+#navbar .fixed {
+    position: sticky;
+    top: 0%;
+    left: 0%;
+
+}
+
+#navbar li:hover {
+    display: flex;
+
+    font-weight: bold;
+
+}
+
+#navbar .botao_logincadastro {
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    height: 50px;
+  
+    background-color: rgb(92, 0, 0);
+}
+#navbar .botao_logincadastro li{
+    color: white;
+}
+
+.botao_logincadastro {
+   
+    border-radius: 10px;
+}
+
+/* #navbar .botao_logincadastro:hover{
+
+
+  
+} */
+.divsao {
+    color: #000000;
+}
+
+
+
+
+.mae_1 {
+    display: flex;
+    flex-direction: row;
+    height: 700px;
+    width: 100%;
+    align-items: center;
+    background-color: #151414;
+
+
+}
+
+.filho {
+    display: flex;
+    flex-direction: row;
+    color: #000000;
+
+}
+#home{
+    background-image: url(../assets/imgs/2motostrilhacurva.jpg);
+background-size: cover;
+}
+
+.filho_img {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10%;
+    align-items: center;
+}
+.filho_img_oque_é {
+    display: flex;
+    flex-direction: row;
+    margin-right: 10%;
+    align-items: center;
+}
+.container {
+
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    height: 500px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 100px;
+    margin-right: 50px;
+
+}
+.container h1{ 
+    margin-top: 150px;
+
+    font-family: LemonMilk;
+    margin-bottom: 10%;
+}
+.container {
+
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    height: 500px;
+
+    margin-left: 20px;
+
+
+
+}
+.container ul{
+    display: flex;
+    height: 70%;
+    flex-direction:column;
+    margin-bottom: 70px;
+    justify-content: space-evenly;
+}
+
+.container h1 {
+    display: flex;
+    margin-top: 20%;
+    margin-bottom: 10%;
+    font-family: LemonMilk;
+}
+
+.container p {
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.div {
+    width: 100%;
+    height: 200px;
+    background-color: #000000;
+}
+
+.mae_2 {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ffffff;
+    width: 100%;
+
+
+
+}
+
+h3 {
+    font-size: 30px;
+    font-family: LemonMilk;
+}
+
+.trilhas {
+    font-family: Roboto, -apple-system, BlinkMacSystemFont, Helvetica Neue, Arial, sans-serif;
+    align-items: center;
+
+    display: flex;
+    width: 100%;
+    height: 200px;
+    font-family: LemonMilk;
+    /* background-color: #000000; */
+    /* color: #ffffff; */
+    font-size: 10px;
+    margin-top: 70px;
+    flex-direction: column;
+
+
+}
+
+.trilhas h1 {
+    width: 100%;
+    text-align: left;
+    font-size: 50px;
+    text-align: center;
+}
+
+hr {
+
+    width: 100%;
+}
+
+.container_pai {
+    display: flex;
+    width: 100%;
+    /* background-color: #000000; */
+    flex-direction: column;
+
+    align-items: center;
+
+
+}
+
+
+.container_2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80vh;
+    height: 450px;
+    color: #ffffff;
+    background-color: rgb(57, 57, 57);
+    text-align: left;
+
+}
+
+.container_2 h3 {
+    width: 100%;
+    margin-top: 40px;
+    margin-left: 100px;
+    font-size: large;
+}
+
+.container_2 b {
+    width: 100%;
+    margin-bottom: 20px;
+    color: #ffffff;
+    margin-left: 100px;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.container_2 i {
+    width: 80%;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 20px;
+
+
+}
+
+
+.container_img {
+    display: flex;
+
+    flex-direction: row;
+    margin-left: 20px;
+}
+
+.mae_2 img {
+    width: 35%;
+
+
+
+}
+
+
+
+
+.estatistica {
+    display: flex;
+    width: 100%;
+    margin-left: 20px;
+
+    flex-direction: column;
+
+
+}
+
+.estatistica em {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: LemonTexto;
+    color: red;
+
+}
+
+.footer {
+    display: flex;
+    margin-top: 30px;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+   font-family: Arial, Helvetica, sans-serif;
+   color: white;
+    background-color: #000000;
+}
+.footer h1{
+    color: orange;
+    font-family: MotoVerse;
+    background-color: #000000;
+}
+.Sobre_Mim {
+    display: flex;
+    align-items: center;
+    background-color: #645252;
+    width: 100%;
+    height: 200px;
+}
