@@ -2,16 +2,16 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/icon/logocima.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaTech | Tempo Real</title>
+    <title>SafeTrail | Questionario</title>
 
 
     <link rel="stylesheet" href="./../css/dashboards.css">
-    <link rel="stylesheet" href="./../css/estilo.css" />
-
+    <link rel="stylesheet" href="../css/stylesite.css">
+    <link rel="stylesheet" href="../css/stylequestionarios.css">
     <script src="../js/sessao.js"></script>
     <script src="../js/alerta.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -20,101 +20,229 @@
         rel="stylesheet">
 </head>
 
-<body onload="validarSessao(), exibirAquarios(),  atualizacaoPeriodica()">
+<body onload="validarSessao()">
+    <nav id="navbar">
 
-    <div class="janela">
-
-        <div class="header-left dash-header">
-
-            <h1>AquaTech</h1>
-
-            <div class="hello">
+        <ul>
+            <div>
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
             </div>
 
-            <div class="btn-nav">
-                <h3>Aquários</h3>
+            <a href="./dashboard.html">
+                <li>
+                    <p>
+                        Inicio
+                    </p>
+                </li>
+            </a>
+
+
+            <a href="./mural.html">
+                <li>
+
+                    <p>Mural de Avisos</p>
+                </li>
+            </a>
+            <a href="./cards.html">
+                <li>
+
+                    <p>Aquários</p>
+                </li>
+            </a>
+            <!-- <a href="sobre_mim.html">
+                <li>Sobre Mim</li>
+            </a> -->
+            <a href="../index.html">
+                <li>
+                    <p>
+                        Sair
+                    </p>
+                </li>
+            </a>
+
+
+        </ul>
+    </nav>
+
+
+
+
+
+    <div class="Questionário">
+
+
+        <h1>Responda as perguntas abaixo </h1>
+
+        <div class="Perguntas">
+
+
+            <div class="Perguntas" id="primeira_pergunta">
+
+                <p>Qual é a sua experiência com motos de trilha?</p>
+                <i> <input name="primeira" value="Iniciante" type="checkbox"> Sou iniciante</i>
+                <i> <input name="primeira" value="intermediário" type="checkbox"> Tenho experiência intermediária</i>
+                <i> <input name="primeira" value="Avançado" type="checkbox"> Sou avançado/profissional </i>
             </div>
 
-            <div class="btn-nav-white">
-                <a href="./dashboard.html">
-                    <h3>Gráficos</h3>
-                </a>
+            <!-- <div id="segunda_pergunta">
+
+            <p>Qual é a marca da sua moto de trilha atual? </p>
+            <i> <input value="4" type="checkbox"> Honda</i>
+            <i> <input value="5" type="checkbox"> Yamaha</i>
+            <i> <input value="6" type="checkbox"> KTM</i>
+            <i> <input value="7" type="checkbox"> Kawasaki</i>
+            <i> <input value="8" type="checkbox"> Suzuki</i>
+
+        </div> -->
+            <div class="Perguntas" id="terceira_pergunta">
+
+                <p>Que tipo de trilha você prefere?</p>
+
+                <i> <input name="segunda" value="Leve e fácil" type="checkbox"> Trilha leve e fácil</i>
+                <i> <input name="segunda" value="Moderada" type="checkbox"> Trilha moderada</i>
+                <i> <input name="segunda" value="Desafiadora" type="checkbox"> Trilha desafiadora e técnica</i>
+
+            </div>
+            <!-- 
+        <div id="quarta_pergunta">
+
+            <p> Com que frequência você participa de eventos ou competições de motocross?</p>
+
+            <i> <input value="9"  type="checkbox"> Nunca</i>
+            <i> <input value="10" type="checkbox"> Raramente</i>
+            <i> <input value="11" type="checkbox"> Algumas vezes por ano</i>
+            <i> <input value="12" type="checkbox"> Regularmente</i>
+        </div> -->
+
+            <!-- <div id="quinta_pergunta">
+            <p>Quais são os principais fatores que você considera ao escolher um lugar para trilha?</p>
+
+            <i> <input value="14"  type="checkbox"> Beleza natural</i>
+            <i> <input  value="15" type="checkbox"> Nível de dificuldade </i>
+            <i> <input  value="16" type="checkbox"> Proximidade de casa </i>
+            <i> <input  value="17" type="checkbox"> Recomendações de amigos</i>
+
+        </div> -->
+
+
+            <div class="Perguntas" id="sexta_pergunta">
+                <p>Você costuma fazer trilhas sozinho ou em grupo?</p>
+
+                <i> <input name="terceira" value="Sozinho" type="checkbox"> Sempre sozinho</i>
+                <i> <input name="terceira" value="Grupo" type="checkbox"> Sempre em grupo</i>
+                <i> <input name="terceira" value="Depende" type="checkbox"> Depende</i>
+
             </div>
 
-            <div class="btn-nav-white">
-                <a href="./mural.html">
-                    <h3>Mural de Avisos</h3>
-                </a>
-            </div>
+            <div class="Perguntas"  id="setima_pergunta">
+                <p>Qual é o equipamento de segurança você acha mais importante ?</p>
 
-            <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
+                <i> <input name="quarta" value="Capacete" type="checkbox"> Capacete</i>
+                <i> <input name="quarta" value="Luvas" type="checkbox"> Luvas</i>
+                <i> <input name="quarta" value="Botas" type="checkbox"> Botas</i>
+                <i> <input name="quarta" value=" Joelheiras e cotoveleiras" type="checkbox"> Joelheiras e cotoveleiras</i>
             </div>
-
         </div>
 
-        <div class="dash">
-            <div id="alerta">
-            </div>
-            <div class="area-parametros-alerta">
-                <p class="titulo-legenda">
-                    Legenda - Parâmetros para Alertas
-                </p>
-                <div class="parametros-alerta">
-                    <div class="item-regua perigo-frio">
-                        <p>Perigo</p>
-                        <p>&lt;=5°C</p>
-                    </div>
-                    <div class="item-regua alerta-frio">
-                        <p>Alerta</p>
-                        <p>&lt;=10°C</p>
-                    </div>
-                    <div class="item-regua ideal">
-                        <p>Ideal</p>
-                        <p>20°C</p>
-                    </div>
-                    <div class="item-regua alerta-quente">
-                        <p>Alerta</p>
-                        <p>&gt;=22°C</p>
-                    </div>
-                    <div class="item-regua perigo-quente">
-                        <p>Perigo</p>
-                        <p>&gt;=23°C</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="cards" id="cardAquarios">
-
-            </div>
-
-        </div>
+        <button onclick="enviar()">Terminar</button>
 
     </div>
-
 </body>
 
 <script>
+  var primeirovalor=0;
+  var segundovalor=0;
+  var terceirovalor=0;
+  var quartovalor=0;
 
-    function exibirAquarios() {
-        JSON.parse(sessionStorage.AQUARIOS).forEach(item => {
-            document.getElementById("cardAquarios").innerHTML += `
-                    <div class="card-aquario">
-                        <div class="title-aquario">
-                            <h1>${item.descricao}</h1>
-                        </div>
-                        <div class="desc-aquario">
-                        <div class="temperatura">
-                            <p id="temp_aquario_${item.id}">-°C</p>
-                        </div>
-                        <div class="cor-alerta" id="card_${item.id}"></div>
-                    </div>
-                    </div>
-                    `
-        });
+    function enviar() {
+        console.log("Enviando para análize...")
+        pegarvalores()
+     
+        fetch("/usuarios/bancoquestionario"),{
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+            // ID_USUARIO:sessionStorage.ID_USUARIO 
+           primeirovalorServer:primeirovalor,
+           segundovalorServer:segundovalor,
+           terceirovalorServer:terceirovalor,
+           quartovalorServer:quartovalor,
+           idUsuarioServer:sessionStorage.ID_USUARIO
+            })
+
+        }   
+     }
+
+    function pegarvalores() {
+
+        console.log("Pegando valores das perguntas...")
+
+        var primeira_pergunta = document.getElementsByName("primeira")
+  
+
+        for (let index = 0; index < primeira_pergunta.length; index++) {
+            if (primeira_pergunta[index].checked ) {
+                console.log(`O valor da primeira pergunta é : ${primeira_pergunta[index].value}`);
+                primeirovalor=primeira_pergunta[index].value;
+            }
+            // else if(primeira_pergunta[index].checked<0) {
+                // console.log("Nenhum valor encontrado !!")
+                // alert("Favor responder a primeira pergunta")
+                // erro = 1
+            // }
+        }
+     
+            console.log("Pegando valores da segunda pergunta...")
+            var segunda_pergunta = document.getElementsByName("segunda")
+            for (let index = 0; index < segunda_pergunta.length; index++) {
+                if (segunda_pergunta[index].checked) {
+                console.log(`O valor da segunda pergunta é : ${segunda_pergunta[index].value}`);
+                segundovalor=segunda_pergunta[index].value;
+            }
+            // else {
+                // console.log("Nenhum valor encontrado !!")
+                // alert("Favor responder a segunda pergunta")
+                // erro = 1
+            
+
+            }
+        // }
+        
+        console.log("Pegando valores da terceira pergunta...")
+            var terceira_pergunta = document.getElementsByName("terceira")
+            for (let index = 0; index < terceira_pergunta.length; index++) {
+                if (terceira_pergunta[index].checked) {
+                console.log(`O valor da terceira pergunta é : ${terceira_pergunta[index].value}`);
+                terceirovalor=terceira_pergunta[index].value;
+            }
+            // else {
+                // console.log("Nenhum valor encontrado !!")
+                // alert("Favor responder a terceira pergunta")
+                // erro = 1
+            
+
+            // }
+        }
+        console.log("Pegando valores da quarta pergunta...")
+            var quarta_pergunta = document.getElementsByName("quarta")
+            for (let index = 0; index < quarta_pergunta.length; index++) {
+                if (quarta_pergunta[index].checked) {
+                console.log(`O valor da quarta pergunta é : ${quarta_pergunta[index].value}`);
+                quartovalor=quarta_pergunta[index].value;
+            }
+            // else {
+                // console.log("Nenhum valor encontrado !!")
+                // alert("Favor responder a quarta pergunta")
+                // erro = 1
+            // }
+        }
+
     }
-
+    
+    
 </script>
 
 </html>

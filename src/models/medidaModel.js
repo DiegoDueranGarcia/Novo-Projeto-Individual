@@ -2,7 +2,10 @@ var database = require("../database/config");
 
 function buscarPreferencia() {
 
-    var instrucaoSql = `select 'Honda' as Marca,count(*) as qtd from usuario where fkMarca=1
+    // Select mostrando o total de pontos de cada marca.
+
+    var instrucaoSql = `
+    select 'Honda' as Marca,count(*) as qtd from usuario where fkMarca=1
 union all
 select 'BMW' as Marca,count(*) as qtd from usuario where fkMarca=2
 union all

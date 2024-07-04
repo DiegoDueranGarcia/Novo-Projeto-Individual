@@ -1,0 +1,41 @@
+
+* {
+    margin: 0px;
+    padding: 0%;
+    max-width: 100%;
+font-family: "Poppins",sans-serif;
+}
+
+body{
+background-color: rgb(122, 122, 122);
+}
+.Questionário {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+
+
+}
+.Perguntas{
+ display: flex;
+ background-color: aqua;
+ flex-direction: column;
+ justify-content: space-around;
+ height: 70%;
+}
+/* .Questionário p {
+    margin-left: 300px;
+}
+
+.Questionário i {
+    display: flex;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-left: 300px;
+}
+
+.Questionário h1 {
+    text-align: center;
+} */

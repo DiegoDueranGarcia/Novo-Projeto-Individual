@@ -17,7 +17,7 @@ body {
   width: 100%;
   color: rgb(216, 216, 216);
   font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+} 
 
 .dash-right .avisos .container {
   display: flex;
@@ -354,14 +354,14 @@ canvas {
 
 .dash-right {
   display: flex;
-  width: 70%;
+  width: 100%;
   height: fit-content;
   background-color: #161618;
-  position: relative;
+  /* position: relative; */
   top: 0;
   left: 25%;
   height: 100vh;
-  overflow: auto;
+  /* overflow: auto; */
 }
 
 .header-left h1 {

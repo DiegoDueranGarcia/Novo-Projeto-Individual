@@ -91,7 +91,52 @@ function cadastrar(req, res) {
     }
 }
 
+
+function bancoquestionario() {
+// Variavel para pegar os valores do arquivo cards.html
+var Primeira = req.body. primeirovalorServer;
+var Segunda = req.body.segundovalorServer;
+var Terceira = req.body.terceirovalorServer;
+var Quarta = req.body.quartovalorServer;
+var idUsuario = req.body.idUsuarioServer;
+
+// Validações com esses valores
+
+if(Primeira==undefined){
+    res.status(400).send("A primeira pergunta não foi definida")
+}
+else if (Segunda==undefined){
+    res.status(400).send("A segunda pergunta não foi definida")
+}
+else if (Terceira==undefined){
+    res.status(400).send("A terceira pergunta não foi definida")
+}
+else if (Quarta==undefined){
+    res.status(400).send("A quarta pergunta não foi definida")
+}
+
+else{
+    usuarioModel.bancoquestionario(Primeira,Segunda,Terceira,Quarta,idUsuario)
+    .then(
+        function(resultado){
+            res.json(resultado)
+        }).catch(
+            function (erro){
+                console.log(erro)
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+}
+
+
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    bancoquestionario
 }

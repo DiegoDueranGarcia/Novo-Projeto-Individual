@@ -12,4 +12,8 @@ router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
 });
 
+router.post("/bancoquestionario", function (req, res) {
+    usuarioController.bancoquestionario(req, res);
+});
+
 module.exports = router;
