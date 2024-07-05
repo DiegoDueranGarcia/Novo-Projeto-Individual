@@ -321,7 +321,7 @@ body {
 }
 
 canvas {
-  width: 100% !important;
+  width: 300px !important;
   height: 100% !important;
 }
 
@@ -351,7 +351,21 @@ canvas {
   border-right: 3px solid #32b9cd;
   background-color: #212124;
 }
+#navbar {
+  display: flex;
+  height: 100vh;
+  width: 200px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #ffffff;
+  position: fixed;
+  top: 0%;
+  box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.5);
+  font-family: Arial, Helvetica, sans-serif;
 
+
+}
 .dash-right {
   display: flex;
   width: 100%;

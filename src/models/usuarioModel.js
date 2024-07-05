@@ -26,10 +26,10 @@ function cadastrar(nome, email, senha,fkMarca) {
     return database.executar(instrucaoSql);
 }
 
-function bancoquestionario(experiencia){
+function bancoquestionario(Primeira,Segunda,Terceira,Quarta){
 
     var instrucaoSql = `
-    INSERT INTO experiencia_usuario (experiencia) VALUES ('${nome}', '${email}', '${senha}',${fkMarca});
+    INSERT INTO Questionário (experiencia,tipo_de_trilha,costume,equipamento_mais_importante) VALUES ('${Primeira}', '${Segunda}', '${Terceira}','${Quarta}');
 `;  
 console.log("Executando a instrução SQL: \n" + instrucaoSql);
 return database.executar(instrucaoSql);

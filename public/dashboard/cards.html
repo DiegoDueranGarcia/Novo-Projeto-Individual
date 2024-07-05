@@ -10,7 +10,7 @@
 
 
     <link rel="stylesheet" href="./../css/dashboards.css">
-    <link rel="stylesheet" href="../css/stylesite.css">
+    <!-- <link rel="stylesheet" href="../css/stylesite.css"> -->
     <link rel="stylesheet" href="../css/stylequestionarios.css">
     <script src="../js/sessao.js"></script>
     <script src="../js/alerta.js"></script>
@@ -28,7 +28,7 @@
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
             </div>
 
-            <a href="./dashboard.html">
+            <a href="./cards.html ">
                 <li>
                     <p>
                         Inicio
@@ -40,13 +40,13 @@
             <a href="./mural.html">
                 <li>
 
-                    <p>Mural de Avisos</p>
+                    <p>Chat</p>
                 </li>
             </a>
-            <a href="./cards.html">
+            <a href="./dashboard.html">
                 <li>
 
-                    <p>Aquários</p>
+                    <p>Dashboard</p>
                 </li>
             </a>
             <!-- <a href="sobre_mim.html">
@@ -71,17 +71,25 @@
     <div class="Questionário">
 
 
-        <h1>Responda as perguntas abaixo </h1>
 
-        <div class="Perguntas">
+        <div class="Perguntas_container">
 
 
-            <div class="Perguntas" id="primeira_pergunta">
 
-                <p>Qual é a sua experiência com motos de trilha?</p>
-                <i> <input name="primeira" value="Iniciante" type="checkbox"> Sou iniciante</i>
+
+            <div class="Perguntas" id="primeira_pergunta" style="display: block;">
+                <h1>1° Pergunta</h1> <br><br>
+                <p>Qual é a sua experiência com motos de trilha?</p><br>
+                <i> <input name="primeira" value="Iniciante" type="checkbox"> Sou iniciante</i> <br> <br>
                 <i> <input name="primeira" value="intermediário" type="checkbox"> Tenho experiência intermediária</i>
-                <i> <input name="primeira" value="Avançado" type="checkbox"> Sou avançado/profissional </i>
+                <br> <br>
+                <i> <input name="primeira" value="Avançado" type="checkbox"> Sou avançado/profissional </i> <br><br>
+                <div class="botao">
+                    <button onclick="proxima()">Próxima</button>
+                </div>
+
+
+
             </div>
 
             <!-- <div id="segunda_pergunta">
@@ -94,14 +102,14 @@
             <i> <input value="8" type="checkbox"> Suzuki</i>
 
         </div> -->
-            <div class="Perguntas" id="terceira_pergunta">
-
+            <div class="Perguntas" id="segunda_pergunta" style="display: none;">
+                <h1>2° Pergunta</h1> <br><br>
                 <p>Que tipo de trilha você prefere?</p>
-
-                <i> <input name="segunda" value="Leve e fácil" type="checkbox"> Trilha leve e fácil</i>
-                <i> <input name="segunda" value="Moderada" type="checkbox"> Trilha moderada</i>
-                <i> <input name="segunda" value="Desafiadora" type="checkbox"> Trilha desafiadora e técnica</i>
-
+                <br>
+                <i> <input name="segunda" value="Leve e fácil" type="checkbox"> Trilha leve e fácil</i><br><br>
+                <i> <input name="segunda" value="Moderada" type="checkbox"> Trilha moderada</i><br><br>
+                <i> <input name="segunda" value="Desafiadora" type="checkbox"> Trilha desafiadora e técnica</i><br><br>
+                <button onclick="proxima()">Próxima</button>
             </div>
             <!-- 
         <div id="quarta_pergunta">
@@ -125,124 +133,154 @@
         </div> -->
 
 
-            <div class="Perguntas" id="sexta_pergunta">
-                <p>Você costuma fazer trilhas sozinho ou em grupo?</p>
-
-                <i> <input name="terceira" value="Sozinho" type="checkbox"> Sempre sozinho</i>
-                <i> <input name="terceira" value="Grupo" type="checkbox"> Sempre em grupo</i>
-                <i> <input name="terceira" value="Depende" type="checkbox"> Depende</i>
-
+            <div class="Perguntas" id="terceira_pergunta" style="display: none;">
+                <h1>3° Pergunta</h1> <br><br>
+                <p>Você costuma fazer trilhas sozinho ou em grupo?</p><br>
+                <i> <input name="terceira" value="Sozinho" type="checkbox"> Sempre sozinho</i><br><br>
+                <i> <input name="terceira" value="Grupo" type="checkbox"> Sempre em grupo</i><br><br>
+                <i> <input name="terceira" value="Depende" type="checkbox"> Depende</i><br><br>
+                <button onclick="proxima()">Próxima</button>
             </div>
 
-            <div class="Perguntas"  id="setima_pergunta">
-                <p>Qual é o equipamento de segurança você acha mais importante ?</p>
-
-                <i> <input name="quarta" value="Capacete" type="checkbox"> Capacete</i>
-                <i> <input name="quarta" value="Luvas" type="checkbox"> Luvas</i>
-                <i> <input name="quarta" value="Botas" type="checkbox"> Botas</i>
-                <i> <input name="quarta" value=" Joelheiras e cotoveleiras" type="checkbox"> Joelheiras e cotoveleiras</i>
+            <div class="Perguntas" id="quarta_pergunta" style="display: none;">
+                   <h1>4° Pergunta</h1> <br><br>
+                <p>Qual é o equipamento de segurança você acha mais importante ?</p><br>
+                <i> <input name="quarta" value="Capacete" type="checkbox"> Capacete</i><br><br>
+                <i> <input name="quarta" value="Luvas" type="checkbox"> Luvas</i><br><br>
+                <i> <input name="quarta" value="Botas" type="checkbox"> Botas</i><br><br>
+                <i> <input name="quarta" value=" Joelheiras e cotoveleiras" type="checkbox"> Joelheiras e
+                    cotoveleiras</i><br><br>
+                <button onclick="proxima()">Próxima</button>
             </div>
+
         </div>
-
-        <button onclick="enviar()">Terminar</button>
+        <div class="Perguntas" id="terminar" style="display: none;">
+            <h1>Terminar</h1> <br><br>
+            <button onclick="enviar()">Terminar</button>
+        </div>
 
     </div>
 </body>
 
 <script>
-  var primeirovalor=0;
-  var segundovalor=0;
-  var terceirovalor=0;
-  var quartovalor=0;
+    var primeirovalor = 0;
+    var segundovalor = 0;
+    var terceirovalor = 0;
+    var quartovalor = 0;
 
     function enviar() {
         console.log("Enviando para análize...")
         pegarvalores()
-     
-        fetch("/usuarios/bancoquestionario"),{
+
+        fetch("/usuarios/bancoquestionario", {
             method: "post",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-            // ID_USUARIO:sessionStorage.ID_USUARIO 
-           primeirovalorServer:primeirovalor,
-           segundovalorServer:segundovalor,
-           terceirovalorServer:terceirovalor,
-           quartovalorServer:quartovalor,
-           idUsuarioServer:sessionStorage.ID_USUARIO
+                // ID_USUARIO:sessionStorage.ID_USUARIO 
+                primeirovalorServer: primeirovalor,
+                segundovalorServer: segundovalor,
+                terceirovalorServer: terceirovalor,
+                quartovalorServer: quartovalor,
+                idUsuarioServer: sessionStorage.ID_USUARIO
             })
 
-        }   
-     }
+        })
+    }
 
     function pegarvalores() {
 
         console.log("Pegando valores das perguntas...")
 
         var primeira_pergunta = document.getElementsByName("primeira")
-  
+
 
         for (let index = 0; index < primeira_pergunta.length; index++) {
-            if (primeira_pergunta[index].checked ) {
+            if (primeira_pergunta[index].checked) {
                 console.log(`O valor da primeira pergunta é : ${primeira_pergunta[index].value}`);
-                primeirovalor=primeira_pergunta[index].value;
+                primeirovalor = primeira_pergunta[index].value;
             }
             // else if(primeira_pergunta[index].checked<0) {
-                // console.log("Nenhum valor encontrado !!")
-                // alert("Favor responder a primeira pergunta")
-                // erro = 1
+            // console.log("Nenhum valor encontrado !!")
+            // alert("Favor responder a primeira pergunta")
+            // erro = 1
             // }
         }
-     
-            console.log("Pegando valores da segunda pergunta...")
-            var segunda_pergunta = document.getElementsByName("segunda")
-            for (let index = 0; index < segunda_pergunta.length; index++) {
-                if (segunda_pergunta[index].checked) {
-                console.log(`O valor da segunda pergunta é : ${segunda_pergunta[index].value}`);
-                segundovalor=segunda_pergunta[index].value;
-            }
-            // else {
-                // console.log("Nenhum valor encontrado !!")
-                // alert("Favor responder a segunda pergunta")
-                // erro = 1
-            
 
-            }
-        // }
-        
-        console.log("Pegando valores da terceira pergunta...")
-            var terceira_pergunta = document.getElementsByName("terceira")
-            for (let index = 0; index < terceira_pergunta.length; index++) {
-                if (terceira_pergunta[index].checked) {
-                console.log(`O valor da terceira pergunta é : ${terceira_pergunta[index].value}`);
-                terceirovalor=terceira_pergunta[index].value;
+        console.log("Pegando valores da segunda pergunta...")
+        var segunda_pergunta = document.getElementsByName("segunda")
+        for (let index = 0; index < segunda_pergunta.length; index++) {
+            if (segunda_pergunta[index].checked) {
+                console.log(`O valor da segunda pergunta é : ${segunda_pergunta[index].value}`);
+                segundovalor = segunda_pergunta[index].value;
             }
             // else {
-                // console.log("Nenhum valor encontrado !!")
-                // alert("Favor responder a terceira pergunta")
-                // erro = 1
-            
+            // console.log("Nenhum valor encontrado !!")
+            // alert("Favor responder a segunda pergunta")
+            // erro = 1
+
+
+        }
+        // }
+
+        console.log("Pegando valores da terceira pergunta...")
+        var terceira_pergunta = document.getElementsByName("terceira")
+        for (let index = 0; index < terceira_pergunta.length; index++) {
+            if (terceira_pergunta[index].checked) {
+                console.log(`O valor da terceira pergunta é : ${terceira_pergunta[index].value}`);
+                terceirovalor = terceira_pergunta[index].value;
+            }
+            // else {
+            // console.log("Nenhum valor encontrado !!")
+            // alert("Favor responder a terceira pergunta")
+            // erro = 1
+
 
             // }
         }
         console.log("Pegando valores da quarta pergunta...")
-            var quarta_pergunta = document.getElementsByName("quarta")
-            for (let index = 0; index < quarta_pergunta.length; index++) {
-                if (quarta_pergunta[index].checked) {
+        var quarta_pergunta = document.getElementsByName("quarta")
+        for (let index = 0; index < quarta_pergunta.length; index++) {
+            if (quarta_pergunta[index].checked) {
                 console.log(`O valor da quarta pergunta é : ${quarta_pergunta[index].value}`);
-                quartovalor=quarta_pergunta[index].value;
+                quartovalor = quarta_pergunta[index].value;
             }
             // else {
-                // console.log("Nenhum valor encontrado !!")
-                // alert("Favor responder a quarta pergunta")
-                // erro = 1
+            // console.log("Nenhum valor encontrado !!")
+            // alert("Favor responder a quarta pergunta")
+            // erro = 1
             // }
         }
 
     }
-    
-    
+    function proxima() {
+
+        var elemento1 = document.getElementById("primeira_pergunta");
+        var elemento2 = document.getElementById("segunda_pergunta");
+        var elemento3 = document.getElementById("terceira_pergunta");
+        var elemento4 = document.getElementById("quarta_pergunta");
+        var elemento5 = document.getElementById("terminar");
+
+        if (elemento1.style.display === "block") {
+            elemento1.style.display = "none";
+            elemento2.style.display = "block";
+        }
+        else if (elemento2.style.display === "block") {
+            elemento2.style.display = "none";
+            elemento3.style.display = "block";
+        }
+        else if (elemento3.style.display === "block") {
+            elemento3.style.display = "none";
+            elemento4.style.display = "block";
+        }
+        else if (elemento4.style.display === "block") {
+            elemento4.style.display = "none";
+            elemento5.style.display = "block";
+        }
+
+    }
+
 </script>
 
 </html>

@@ -92,9 +92,9 @@ function cadastrar(req, res) {
 }
 
 
-function bancoquestionario() {
+function bancoquestionario(req,res) {
 // Variavel para pegar os valores do arquivo cards.html
-var Primeira = req.body. primeirovalorServer;
+var Primeira = req.body.primeirovalorServer;
 var Segunda = req.body.segundovalorServer;
 var Terceira = req.body.terceirovalorServer;
 var Quarta = req.body.quartovalorServer;
