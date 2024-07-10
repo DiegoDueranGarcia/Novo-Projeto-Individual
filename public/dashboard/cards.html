@@ -10,8 +10,11 @@
 
 
     <link rel="stylesheet" href="./../css/dashboards.css">
+
     <!-- <link rel="stylesheet" href="../css/stylesite.css"> -->
     <link rel="stylesheet" href="../css/stylequestionarios.css">
+    
+    <!-- <link rel="stylesheet" href="./../css/dashboards.css"> -->
     <script src="../js/sessao.js"></script>
     <script src="../js/alerta.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -75,9 +78,18 @@
         <div class="Perguntas_container">
 
 
+            <div id="bem_vindo" style="display: block;">
+                <h1>SafeTrail Quiz  </h1> <br><br>
+                <p>Gostaria de participar ?</p><br>
+                <div class="botao">
+                    <button onclick="proxima()">Começar</button>
+                </div>
 
 
-            <div class="Perguntas" id="primeira_pergunta" style="display: block;">
+
+            </div>
+
+            <div class="Perguntas" id="primeira_pergunta" style="display: none;">
                 <h1>1° Pergunta</h1> <br><br>
                 <p>Qual é a sua experiência com motos de trilha?</p><br>
                 <i> <input name="primeira" value="Iniciante" type="checkbox"> Sou iniciante</i> <br> <br>
@@ -143,7 +155,7 @@
             </div>
 
             <div class="Perguntas" id="quarta_pergunta" style="display: none;">
-                   <h1>4° Pergunta</h1> <br><br>
+                <h1>4° Pergunta</h1> <br><br>
                 <p>Qual é o equipamento de segurança você acha mais importante ?</p><br>
                 <i> <input name="quarta" value="Capacete" type="checkbox"> Capacete</i><br><br>
                 <i> <input name="quarta" value="Luvas" type="checkbox"> Luvas</i><br><br>
@@ -153,130 +165,223 @@
                 <button onclick="proxima()">Próxima</button>
             </div>
 
-        </div>
-        <div class="Perguntas" id="terminar" style="display: none;">
-            <h1>Terminar</h1> <br><br>
-            <button onclick="enviar()">Terminar</button>
+            <div class="Perguntas" id="terminar" style="display: none;">
+                <h1>Terminar</h1> <br><br>
+                <button onclick="enviar()">Terminar</button>
+            </div>
+
+            <div class="Perguntas" id="Fechamento" style="display: none;">
+                <h1>Acabou</h1>
+            </div>
         </div>
 
     </div>
 </body>
 
 <script>
-    var primeirovalor = 0;
-    var segundovalor = 0;
-    var terceirovalor = 0;
-    var quartovalor = 0;
-
+    var primeirovalor = null;
+    var segundovalor = null;
+    var terceirovalor = null;
+    var quartovalor = null;
+ 
+    // Alteração feita no dia 04/07/2024
     function enviar() {
-        console.log("Enviando para análize...")
-        pegarvalores()
-
-        fetch("/usuarios/bancoquestionario", {
-            method: "post",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                // ID_USUARIO:sessionStorage.ID_USUARIO 
-                primeirovalorServer: primeirovalor,
-                segundovalorServer: segundovalor,
-                terceirovalorServer: terceirovalor,
-                quartovalorServer: quartovalor,
-                idUsuarioServer: sessionStorage.ID_USUARIO
-            })
-
-        })
-    }
-
-    function pegarvalores() {
-
-        console.log("Pegando valores das perguntas...")
-
-        var primeira_pergunta = document.getElementsByName("primeira")
-
-
-        for (let index = 0; index < primeira_pergunta.length; index++) {
-            if (primeira_pergunta[index].checked) {
-                console.log(`O valor da primeira pergunta é : ${primeira_pergunta[index].value}`);
-                primeirovalor = primeira_pergunta[index].value;
+            fetch("/usuarios/bancoquestionario", {
+                method: "post",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    // ID_USUARIO:sessionStorage.ID_USUARIO 
+                    primeirovalorServer: primeirovalor,
+                    segundovalorServer: segundovalor,
+                    terceirovalorServer: terceirovalor,
+                    quartovalorServer: quartovalor,
+                    idUsuarioServer: sessionStorage.ID_USUARIO
+                })
             }
-            // else if(primeira_pergunta[index].checked<0) {
-            // console.log("Nenhum valor encontrado !!")
-            // alert("Favor responder a primeira pergunta")
-            // erro = 1
-            // }
+        )
+        var elemento5 = document.getElementById("terminar");
+        var elementoY = document.getElementById("Fechamento");
+        if (elemento5.style.display == "block") {
+            elemento5.style.display = "none";
+            elementoY.style.display = "block";
         }
-
-        console.log("Pegando valores da segunda pergunta...")
-        var segunda_pergunta = document.getElementsByName("segunda")
-        for (let index = 0; index < segunda_pergunta.length; index++) {
-            if (segunda_pergunta[index].checked) {
-                console.log(`O valor da segunda pergunta é : ${segunda_pergunta[index].value}`);
-                segundovalor = segunda_pergunta[index].value;
-            }
-            // else {
-            // console.log("Nenhum valor encontrado !!")
-            // alert("Favor responder a segunda pergunta")
-            // erro = 1
-
-
         }
-        // }
-
-        console.log("Pegando valores da terceira pergunta...")
-        var terceira_pergunta = document.getElementsByName("terceira")
-        for (let index = 0; index < terceira_pergunta.length; index++) {
-            if (terceira_pergunta[index].checked) {
-                console.log(`O valor da terceira pergunta é : ${terceira_pergunta[index].value}`);
-                terceirovalor = terceira_pergunta[index].value;
-            }
-            // else {
-            // console.log("Nenhum valor encontrado !!")
-            // alert("Favor responder a terceira pergunta")
-            // erro = 1
+    
+    
 
 
-            // }
-        }
-        console.log("Pegando valores da quarta pergunta...")
-        var quarta_pergunta = document.getElementsByName("quarta")
-        for (let index = 0; index < quarta_pergunta.length; index++) {
-            if (quarta_pergunta[index].checked) {
-                console.log(`O valor da quarta pergunta é : ${quarta_pergunta[index].value}`);
-                quartovalor = quarta_pergunta[index].value;
-            }
-            // else {
-            // console.log("Nenhum valor encontrado !!")
-            // alert("Favor responder a quarta pergunta")
-            // erro = 1
-            // }
-        }
 
-    }
+    // function pegarvalores() {
+
+    //     // Alteração feita no dia 04/07/2024
+    //     console.log("Pegando valores da primeira pergunta...")
+    //     var primeira_pergunta = document.getElementsByName("primeira")
+    //     for (let index = 0; index < primeira_pergunta.length; index++) {
+    //         if (primeira_pergunta[index].checked) {
+    //             console.log(`O valor da primeira pergunta é : ${primeira_pergunta[index].value}`);
+    //             primeirovalor = primeira_pergunta[index].value;
+    //             selecionado = true;
+    //         }
+
+    //     }
+
+    //     console.log("Pegando valores da segunda pergunta...")
+    //     var segunda_pergunta = document.getElementsByName("segunda")
+    //     for (let index = 0; index < segunda_pergunta.length; index++) {
+    //         if (segunda_pergunta[index].checked) {
+    //             console.log(`O valor da segunda pergunta é : ${segunda_pergunta[index].value}`);
+    //             segundovalor = segunda_pergunta[index].value;
+    //             selecionado = true;
+    //         }
+    //         // else {
+    //         // console.log("Nenhum valor encontrado !!")
+    //         // alert("Favor responder a segunda pergunta")
+    //         // erro = 1
+
+
+    //     }
+    //     // }
+
+    //     console.log("Pegando valores da terceira pergunta...")
+    //     var terceira_pergunta = document.getElementsByName("terceira")
+    //     for (let index = 0; index < terceira_pergunta.length; index++) {
+    //         if (terceira_pergunta[index].checked) {
+    //             console.log(`O valor da terceira pergunta é : ${terceira_pergunta[index].value}`);
+    //             terceirovalor = terceira_pergunta[index].value;
+    //             selecionado = true;
+    //         }
+
+    //     }
+    //     console.log("Pegando valores da quarta pergunta...")
+    //     var quarta_pergunta = document.getElementsByName("quarta")
+    //     for (let index = 0; index < quarta_pergunta.length; index++) {
+    //         if (quarta_pergunta[index].checked) {
+    //             console.log(`O valor da quarta pergunta é : ${quarta_pergunta[index].value}`);
+    //             quartovalor = quarta_pergunta[index].value;
+    //             selecionado = true;
+    //         }
+    //     }
+
+    // }
     function proxima() {
 
+        // Alteração feita no dia 04/07/2024
+        var elementoX = document.getElementById("bem_vindo");
         var elemento1 = document.getElementById("primeira_pergunta");
         var elemento2 = document.getElementById("segunda_pergunta");
         var elemento3 = document.getElementById("terceira_pergunta");
         var elemento4 = document.getElementById("quarta_pergunta");
         var elemento5 = document.getElementById("terminar");
+        var elementoY = document.getElementById("Fechamento");
 
-        if (elemento1.style.display === "block") {
-            elemento1.style.display = "none";
-            elemento2.style.display = "block";
+        var selecionado = false;
+
+        if (elementoX.style.display == "block") {
+
+            elementoX.style.display = "none";
+            elemento1.style.display = "block";
         }
-        else if (elemento2.style.display === "block") {
-            elemento2.style.display = "none";
-            elemento3.style.display = "block";
+
+        else if (elemento1.style.display == "block") {
+
+            console.log("Pegando valores da primeira pergunta...")
+            var primeira_pergunta = document.getElementsByName("primeira")
+            for (let index = 0; index < primeira_pergunta.length; index++) {
+
+                if (primeira_pergunta[index].checked) {
+                    console.log(`O valor da primeira pergunta é : ${primeira_pergunta[index].value}`);
+                    primeirovalor = primeira_pergunta[index].value;
+                    selecionado = true;
+                }
+
+            }
+            if (selecionado == false) {
+                alert("Selecione uma opção para continuar !!")
+                console.log("Nenhum valor encontrado !!")
+            } else {
+                elemento1.style.display = "none";
+                elemento2.style.display = "block";
+
+            }
+
+            selecionado = false;
+
         }
-        else if (elemento3.style.display === "block") {
-            elemento3.style.display = "none";
-            elemento4.style.display = "block";
+        else if (elemento2.style.display == "block") {
+            console.log("Pegando valores da segunda pergunta...")
+            var segunda_pergunta = document.getElementsByName("segunda")
+            for (let index = 0; index < segunda_pergunta.length; index++) {
+                if (segunda_pergunta[index].checked) {
+                    console.log(`O valor da segunda pergunta é : ${segunda_pergunta[index].value}`);
+                    segundovalor = segunda_pergunta[index].value;
+                    selecionado = true;
+                }
+                else {
+                    selecionado == false;
+                }
+            }
+            if (selecionado == false) {
+                alert("Selecione uma opção para continuar !!")
+                console.log("Nenhum valor encontrado !!")
+            } else {
+                elemento2.style.display = "none";
+                elemento3.style.display = "block";
+            }
+            selecionado = false;
         }
-        else if (elemento4.style.display === "block") {
-            elemento4.style.display = "none";
-            elemento5.style.display = "block";
+        else if (elemento3.style.display == "block") {
+            console.log("Pegando valores da terceira pergunta...")
+            var terceira_pergunta = document.getElementsByName("terceira")
+            for (let index = 0; index < terceira_pergunta.length; index++) {
+                if (terceira_pergunta[index].checked) {
+                    console.log(`O valor da terceira pergunta é : ${terceira_pergunta[index].value}`);
+                    terceirovalor = terceira_pergunta[index].value;
+                    selecionado = true;
+                }
+                else {
+                    selecionado == false;
+                }
+            }
+
+            if (selecionado == false) {
+                alert("Selecione uma opção para continuar !!")
+                console.log("Nenhum valor encontrado !!")
+            } else {
+                elemento3.style.display = "none";
+                elemento4.style.display = "block";
+            }
+            selecionado = false;
+        }
+
+
+        else if (elemento4.style.display == "block") {
+            console.log("Pegando valores da quarta pergunta...")
+            var quarta_pergunta = document.getElementsByName("quarta")
+            for (let index = 0; index < quarta_pergunta.length; index++) {
+                if (quarta_pergunta[index].checked) {
+                    console.log(`O valor da quarta pergunta é : ${quarta_pergunta[index].value}`);
+                    quartovalor = quarta_pergunta[index].value;
+                    selecionado = true;
+                }
+                else {
+                    selecionado == false;
+                }
+            }
+            if (selecionado == false) {
+                alert("Selecione uma opção para continuar !!")
+                console.log("Nenhum valor encontrado !!")
+            } else {
+                elemento4.style.display = "none";
+                elemento5.style.display = "block";
+            }
+            selecionado = false;
+
+        }
+        else if (elemento5.style.display == "block") {
+            elemento5.style.display = "none";
+            elementoY.style.display = "block";
         }
 
     }

@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="./../css/dashboards.css">
     <!-- <link rel="stylesheet" href="./../css/estilo.css" /> -->
-    <link rel="stylesheet" href="../css/stylesite.css">
+    <!-- <link rel="stylesheet" href="../css/stylesite.cq   ss"> -->
     <script src="../js/sessao.js"></script>
     <script src="./../js/alerta.js"></script>
 
@@ -31,42 +31,6 @@
 <!-- <body onload=" atualizarFeed()"> -->
 
 <body>
-    <!-- 
-    <div class="janela">
-        <div class="header-left">
-            <h1>AquaTech</h1>
-
-            <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./cards.html">
-                    <h3>Aquários</h3>
-                </a>
-            </div>
-
-            <div class="btn-nav">
-
-                <h3>Gráficos</h3>
-
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./mural.html">
-                    <h3>Mural de Avisos</h3>
-                </a>
-            </div>
-
-            <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
-            </div>
-
-        </div>
-
-        <div class="dash">
-            <div id="alerta">
-            </div> -->
 
     <nav id="navbar">
 
@@ -111,24 +75,22 @@
         </ul>
     </nav>
 
-
-    <div style="width: 70%;text-align: start;" id="div_msg">
+    <!-- style="margin-left: 300px;" -->
+    <div class="ranking" id="div_msg">
         <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
+        <h2>Ranking de Preferências </h2>
     </div>
 
     <div class="container_grafico" id="graficos">
 
-        <div style="display: flex;flex-direction: column; width: 90%; height: 100%; align-items: center;">
+        <div class="grafico_marcas"
+            style="display: flex;flex-direction: column; width: 90%; height: 100%; align-items: center;">
             <h1>Marcas mais desejadas </h1>
 
 
 
             <canvas id="myChartCanvas"></canvas>
         </div>
-
-    </div>
-    </div>
-
 
     </div>
     </div>
@@ -144,74 +106,7 @@
     let proximaAtualizacao;
     var listaPref = [];
     window.onload = obterDadosGrafico();
-    window.onload = gerarPorcentagem();
 
-    // function exibirAquariosDoUsuario() {
-    //     var aquarios = JSON.parse(sessionStorage.AQUARIOS);
-    //     aquarios.forEach(item => {
-    //         document.getElementById("btnAquario").innerHTML += `
-    //         <button class="btn-chart" onclick="exibirAquario(${item.id})" id="btnAquario${item.id}">${item.descricao}</button>
-    //         `
-
-    //         document.getElementById("graficos").innerHTML += `
-    //             <div id="grafico${item.id}" class="display-none">
-    //                 <h3 class="tituloGraficos">
-    //                     <span id="tituloAquario${item.id}">${item.descricao}</span>
-    //                 </h3>
-    //                 <div class="graph">
-    //                     <canvas id="myChartCanvas${item.id}"></canvas>
-    //                 </div>
-    //                 <div class="label-captura">
-    //                     <p id="avisoCaptura${item.id}" style="color: white"></p>
-    //                 </div>
-    //             </div>
-    //         `
-
-    //         obterDadosGrafico(item.id)
-    //     });
-
-    //     if (aquarios.length > 0) {
-    //         exibirAquario(aquarios[0].id)
-    //     }
-    // }
-
-    // function alterarTitulo(idAquario) {
-    //     var tituloAquario = document.getElementById(`tituloAquario${idAquario}`)
-    //     var descricao = JSON.parse(sessionStorage.AQUARIOS).find(item => item.id == idAquario).descricao;
-    //     tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>" + descricao + "</span>"
-    // }
-
-    // function exibirAquario(idAquario) {
-    //     let todosOsGraficos = JSON.parse(sessionStorage.AQUARIOS);
-
-    //     for (i = 0; i < todosOsGraficos.length; i++) {
-    //         // exibindo - ou não - o gráfico
-    //         if (todosOsGraficos[i].id != idAquario) {
-    //             let elementoAtual = document.getElementById(`grafico${todosOsGraficos[i].id}`)
-    //             if (elementoAtual.classList.contains("display-block")) {
-    //                 elementoAtual.classList.remove("display-block")
-    //             }
-    //             elementoAtual.classList.add("display-none")
-
-    //             // alterando estilo do botão
-    //             let btnAtual = document.getElementById(`btnAquario${todosOsGraficos[i].id}`)
-    //             if (btnAtual.classList.contains("btn-pink")) {
-    //                 btnAtual.classList.remove("btn-pink")
-    //             }
-    //             btnAtual.classList.add("btn-white")
-    //         }
-    //     }
-
-    //     // exibindo - ou não - o gráfico
-    //     let graficoExibir = document.getElementById(`grafico${idAquario}`)
-    //     graficoExibir.classList.remove("display-none")
-    //     graficoExibir.classList.add("display-block")
-
-    //     // alterando estilo do botão
-    //     let btnExibir = document.getElementById(`btnAquario${idAquario}`)
-    //     btnExibir.classList.remove("btn-white")
-    //     btnExibir.classList.add("btn-pink")
-    // }
 
     // O gráfico é construído com três funções:
     // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
@@ -224,17 +119,18 @@
 
     //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
     //     Para ajustar o "select", ajuste o comando sql em src/models
+
+    // 04/07/2024, Foi adicionado um fetch para buscar os dados do banco e plotar o gráfico
     function obterDadosGrafico() {
         fetch(`/medidas/preferencia/`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     resposta.reverse();
-
                     listaPref = resposta;
                     plotarGrafico(resposta)
-                    gerarPorcentagem()
 
+                    gerarPorcentagem()
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
@@ -247,14 +143,8 @@
 
     function gerarPorcentagem() {
 
-        div_msg.innerHTML = "";
-
-        div_msg.innerHTML += `
-            <p>Ranking de Preferências</p>`;
-
-
         var totalPref = 0;
-        var listaMarcas = ['Suzuki', 'Kawasaki', 'Yamaha', 'KTM', 'BMW', 'Honda']
+        // var listaMarcas = ['Suzuki', 'Kawasaki', 'Yamaha', 'KTM', 'BMW', 'Honda']
         // totalPref += Number(listaPref[0].qtd);
         // totalPref += Number(listaPref[1].qtd);
         // totalPref += Number(listaPref[2].qtd);
@@ -264,16 +154,19 @@
 
         for (let index = 0; index < listaPref.length; index++) {
             totalPref += Number(listaPref[index].qtd);
-
+            console.log("Obtendo a quantidade de cada marca...")
+        }
+        for (let i = 0; i < listaPref.length; i++) {
+            console.log("Mostrando a quantidade...")
+            div_msg.innerHTML += `<p>${listaPref[i].Marca}: ${((listaPref[i].qtd / totalPref) * 100).toFixed(2)}%</p>`
         }
 
-        
-        div_msg.innerHTML += `<p>${listaMarcas[0]}: ${((listaPref[0] / totalPref) * 100).toFixed()}%</p>`
-        div_msg.innerHTML += `<p>${listaMarcas[1]}: ${((listaPref[1] / totalPref) * 100).toFixed()}%</p>`
-        div_msg.innerHTML += `<p>${listaMarcas[2]}: ${((listaPref[2] / totalPref) * 100).toFixed()}%</p>`
-        div_msg.innerHTML += `<p>${listaMarcas[3]}: ${((listaPref[3] / totalPref) * 100).toFixed()}%</p>`
-        div_msg.innerHTML += `<p>${listaMarcas[4]}: ${((listaPref[4]/ totalPref) * 100).toFixed()}%</p>`
-        div_msg.innerHTML += `<p>${listaMarcas[5]}: ${((listaPref[5] / totalPref) * 100).toFixed()}%</p>`
+        // div_msg.innerHTML += `<p>${listaMarcas[0]}: ${((listaPref[0] / totalPref) * 100).toFixed()}%</p>`
+        // div_msg.innerHTML += `<p>${listaMarcas[1]}: ${((listaPref[1] / totalPref) * 100).toFixed()}%</p>`
+        // div_msg.innerHTML += `<p>${listaMarcas[2]}: ${((listaPref[2] / totalPref) * 100).toFixed()}%</p>`
+        // div_msg.innerHTML += `<p>${listaMarcas[3]}: ${((listaPref[3] / totalPref) * 100).toFixed()}%</p>`
+        // div_msg.innerHTML += `<p>${listaMarcas[4]}: ${((listaPref[4]/ totalPref) * 100).toFixed()}%</p>`
+        // div_msg.innerHTML += `<p>${listaMarcas[5]}: ${((listaPref[5] / totalPref) * 100).toFixed()}%</p>`
 
 
 
@@ -294,7 +187,7 @@
             labels: labels,
 
             datasets: [{
-                label: ['Honda', 'BMW', 'KTM', 'Yamaha', 'Kawazaki', 'Suzuki'],
+                label: ["Quantidade"],
                 data: [],
                 fill: false,
                 tension: 0.1

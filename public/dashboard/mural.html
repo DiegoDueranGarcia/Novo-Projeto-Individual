@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/icon/logocima.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="./../css/dashboards.css">
     <link rel="stylesheet" href="./../css/estilo.css" />
-    <link rel="stylesheet" href="../css/stylesite.css">
+    <!-- <link rel="stylesheet" href="../css/stylesite.css"> -->
 
     <script src="../js/sessao.js"></script>
     <script src="./../js/alerta.js"></script>
@@ -21,7 +21,7 @@
         rel="stylesheet">
 </head>
 
-<body onload="validarSessao(), atualizarFeed()" style="background-color: #161618;">
+<body onload="validarSessao(), atualizarFeed()" style="background-color: rgb(150, 144, 144);">
     <nav id="navbar">
 
         <ul>
@@ -65,7 +65,7 @@
         </ul>
     </nav>
 
-        <div class="dash-right">
+        <div class="container" class="dash-right">
 
 
             <div class="avisos">
@@ -76,16 +76,15 @@
                     <div class="div-form">
                         <form id="form_postagem" method="post" onsubmit="return publicar()">
                             <label>
-                                Título:
+                              
                                 <br>
-                                <input name="titulo" id="titulo" maxlength="100" type="text">
+                                <input placeholder="  Título:" name="titulo" id="titulo" maxlength="100" type="text">
                             </label>
                             <br>
                             <br>
                             <label>
-                                Descrição (máximo de 250 caracteres):
                                 <br>
-                                <textarea name="descricao" id="textarea_descricao" maxlength="250" rows="5"></textarea>
+                                <textarea placeholder="  Descrição (máximo de 250 caracteres):" name="descricao" id="textarea_descricao" maxlength="250" rows="5"></textarea>
                             </label>
                             <br>
                             <br>

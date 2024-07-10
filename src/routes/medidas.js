@@ -7,7 +7,7 @@ router.get("/ultimas", function (req, res) {
     medidaController.buscarUltimasMedidas(req, res);
 });
 
-
+// 04/07/2024, Caminho para realizar a função buscarPreferencia
 router.get("/preferencia", function (req, res) {
     medidaController.buscarPreferencia(req, res);
 });

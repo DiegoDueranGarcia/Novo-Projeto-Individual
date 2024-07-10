@@ -27,7 +27,7 @@ function cadastrar(nome, email, senha,fkMarca) {
 }
 
 function bancoquestionario(Primeira,Segunda,Terceira,Quarta){
-
+      // Alteração feita no dia 04/07/2024
     var instrucaoSql = `
     INSERT INTO Questionário (experiencia,tipo_de_trilha,costume,equipamento_mais_importante) VALUES ('${Primeira}', '${Segunda}', '${Terceira}','${Quarta}');
 `;  

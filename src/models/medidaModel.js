@@ -5,17 +5,10 @@ function buscarPreferencia() {
     // Select mostrando o total de pontos de cada marca.
 
     var instrucaoSql = `
-    select 'Honda' as Marca,count(*) as qtd from usuario where fkMarca=1
-union all
-select 'BMW' as Marca,count(*) as qtd from usuario where fkMarca=2
-union all
-select 'KTM' as Marca,count(*) as qtd from usuario where fkMarca=3
-union all
-select 'Yamaha' as Marca,count(*) as qtd from usuario where fkMarca=4
-union all
-select 'Kawasaki' as Marca,count(*) as qtd from usuario where fkMarca=5
-union all
-select 'Suzuki' as Marca,count(*) as qtd from usuario where fkMarca=6;`;
+    SELECT Marca.nomeMarca AS Marca, COUNT(*) AS qtd
+FROM Usuario
+JOIN Marca ON Usuario.fkMarca = Marca.idMarca
+GROUP BY Marca.nomeMarca;`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
