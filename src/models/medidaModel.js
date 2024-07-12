@@ -1,19 +1,32 @@
 var database = require("../database/config");
 
 function buscarPreferencia() {
-
+    // 10/07/2024
     // Select mostrando o total de pontos de cada marca.
 
     var instrucaoSql = `
-    SELECT Marca.nomeMarca AS Marca, COUNT(*) AS qtd
+SELECT Marca.nomeMarca AS Marca, COUNT(*) AS qtd
 FROM Usuario
 JOIN Marca ON Usuario.fkMarca = Marca.idMarca
-GROUP BY Marca.nomeMarca;`;
+GROUP BY Marca.nomeMarca
+ORDER BY qtd ;`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
+function buscarExperiencia() {
+    // 10/07/2024
+    // Select mostrando o total as experiencias escolhidas.
+
+    var instrucaoSql = `
+SELECT experiencia, COUNT(*) AS quantidade
+FROM Questionário
+GROUP BY experiencia;`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
 
 
 // function buscarMedidasEmTempoReal(req, res) {
@@ -36,7 +49,8 @@ GROUP BY Marca.nomeMarca;`;
 // }
 
 module.exports = {
-    buscarPreferencia
+    buscarPreferencia,
+    buscarExperiencia
     // buscarMedidasEmTempoReal
 
 }

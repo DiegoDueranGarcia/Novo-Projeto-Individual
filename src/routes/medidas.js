@@ -12,7 +12,10 @@ router.get("/preferencia", function (req, res) {
     medidaController.buscarPreferencia(req, res);
 });
 
-
+// 11/07/2024, Caminho para realizar a função buscarExperiencia
+router.get("/experiencia", function (req, res) {
+    medidaController.buscarExperiencia(req, res);
+});
 // router.get("/tempo-real/:idAquario", function (req, res) {
 //     medidaController.buscarMedidasEmTempoReal(req, res);
 // })

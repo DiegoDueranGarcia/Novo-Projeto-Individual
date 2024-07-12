@@ -213,9 +213,13 @@ body {
 }
 
 
-canvas {
+canvas #myChartCanvas {
   width: 40% !important;
   height: 50% !important;
+}
+canvas #myChartCanvasExperiencia{
+  width: 100% !important;
+  height: 80% !important;
 }
 
 /* PAGINA DOS GRÁFICOS 2023 */

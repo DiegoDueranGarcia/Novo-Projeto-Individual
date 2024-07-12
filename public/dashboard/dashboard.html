@@ -90,6 +90,11 @@
 
 
             <canvas id="myChartCanvas"></canvas>
+
+        </div>
+        <div class="grafico_marcas">
+            <h1>Experiencia dos usuarios:</h1>
+            <canvas id="myChartCanvasExperiencia"></canvas>
         </div>
 
     </div>
@@ -106,7 +111,7 @@
     let proximaAtualizacao;
     var listaPref = [];
     window.onload = obterDadosGrafico();
-
+    window.onload = obterDadosGraficoExperiencia();
 
     // O gráfico é construído com três funções:
     // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
@@ -119,8 +124,93 @@
 
     //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
     //     Para ajustar o "select", ajuste o comando sql em src/models
+    // var listaExperiecia = 0
+   
+   
+    // 11/07/2024, Foi adicionado um fetch para buscar os dados do banco
 
-    // 04/07/2024, Foi adicionado um fetch para buscar os dados do banco e plotar o gráfico
+    function obterDadosGraficoExperiencia() {
+        fetch(`/medidas/experiencia/`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (respostaExperiencia) {
+                    console.log(`Dados recebidos: ${JSON.stringify(respostaExperiencia)}`);
+                    respostaExperiencia.reverse();
+                    // listaExperiecia = respostaExperiencia;
+                    plotarGraficoExperiencia(respostaExperiencia)
+
+                    // gerarPorcentagemExperiencia()
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+
+    // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+    // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+    // A função *plotarGrafico* também invoca a função *atualizarGrafico*
+    function plotarGraficoExperiencia(respostaExperiencia) {
+
+        console.log('iniciando plotagem do gráfico...');
+
+        // Criando estrutura para plotar gráfico - labels
+        let labels = [];
+
+        // Criando estrutura para plotar gráfico - dados
+        let dados = {
+            labels: labels,
+
+            datasets: [{
+                label: ["Quantidade"],
+                data: [],
+                fill: false,
+                tension: 0.1
+            },
+            ]
+        };
+
+        console.log('----------------------------------------------')
+        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+        console.log(respostaExperiencia)
+        // 11/07/2024
+        // Inserindo valores recebidos em estrutura para plotar o gráfico   
+        for (i = 0; i < respostaExperiencia.length; i++) {
+            var registroExperiencia = respostaExperiencia[i];
+
+            labels.push(registroExperiencia.experiencia);
+            dados.datasets[0].data.push(registroExperiencia.quantidade)
+
+        }
+
+        console.log('----------------------------------------------')
+        console.log('O gráfico será plotado com os respectivos valores:')
+        console.log('Labels:')
+        console.log(labels)
+        console.log('Dados:')
+        console.log(dados.datasets)
+        console.log('----------------------------------------------')
+
+        // Criando estrutura para plotar gráfico - config
+        const config = {
+            type: 'pie',
+            data: dados,
+        };
+
+        // Adicionando gráfico criado em div na tela
+
+        let myChartExperiencia = new Chart(
+            document.getElementById(`myChartCanvasExperiencia`),
+            config
+        );
+
+        // setTimeout(() => atualizarGrafico(myChart), 2000);
+    }
+
+    // 04/07/2024, Foi adicionado um fetch para buscar os dados do banco
     function obterDadosGrafico() {
         fetch(`/medidas/preferencia/`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
@@ -143,6 +233,7 @@
 
     function gerarPorcentagem() {
 
+        // 10/07/2024
         var totalPref = 0;
         // var listaMarcas = ['Suzuki', 'Kawasaki', 'Yamaha', 'KTM', 'BMW', 'Honda']
         // totalPref += Number(listaPref[0].qtd);
@@ -202,38 +293,41 @@
         // Inserindo valores recebidos em estrutura para plotar o gráfico
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
-
+            // 10/07/2024 foi mudado a forma de plotar o gráfico
             labels.push(registro.Marca);
-            if (registro.Marca == 'Honda') {
-                dados.datasets[0].data.push(registro.qtd);
-                // dados.datasets[0].backgroundColor.push('red');
+            dados.datasets[0].data.push(registro.qtd)
 
-            }
-            else if (registro.Marca == 'BMW') {
-                dados.datasets[0].data.push(registro.qtd);
-                // dados.datasets[0].backgroundColor.push('blue');
+            //Jeito antido:
+            // if (registro.Marca == 'Honda') {
+            //     dados.datasets[0].data.push(registro.qtd);
+            //     // dados.datasets[0].backgroundColor.push('red');
 
-            }
-            else if (registro.Marca == 'KTM') {
-                dados.datasets[0].data.push(registro.qtd);
-                // dados.datasets[0].backgroundColor.push('orange');
+            // }
+            // else if (registro.Marca == 'BMW') {
+            //     dados.datasets[0].data.push(registro.qtd);
+            //     // dados.datasets[0].backgroundColor.push('blue');
 
-            }
-            else if (registro.Marca == 'Yamaha') {
-                dados.datasets[0].data.push(registro.qtd);
-                // dados.datasets[0].backgroundColor.push('yellow');
+            // }
+            // else if (registro.Marca == 'KTM') {
+            //     dados.datasets[0].data.push(registro.qtd);
+            //     // dados.datasets[0].backgroundColor.push('orange');
 
-            }
-            else if (registro.Marca == 'Kawasaki') {
-                dados.datasets[0].data.push(registro.qtd);
-                // dados.datasets[0].backgroundColor.push('green');
+            // }
+            // else if (registro.Marca == 'Yamaha') {
+            //     dados.datasets[0].data.push(registro.qtd);
+            //     // dados.datasets[0].backgroundColor.push('yellow');
 
-            }
-            else if (registro.Marca == 'Suzuki') {
-                dados.datasets[0].data.push(registro.qtd);
-                // dados.datasets[0].backgroundColor.push('purple');
+            // }
+            // else if (registro.Marca == 'Kawasaki') {
+            //     dados.datasets[0].data.push(registro.qtd);
+            //     // dados.datasets[0].backgroundColor.push('green');
 
-            }
+            // }
+            // else if (registro.Marca == 'Suzuki') {
+            //     dados.datasets[0].data.push(registro.qtd);
+            //     // dados.datasets[0].backgroundColor.push('purple');
+
+            // }
 
         }
 
