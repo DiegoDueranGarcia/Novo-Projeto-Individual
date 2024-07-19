@@ -78,8 +78,9 @@
         <div class="Perguntas_container">
 
 
-            <div id="bem_vindo" style="display: block;">
+            <div class="Perguntas" id="bem_vindo" style="display: block;">
                 <h1>SafeTrail Quiz  </h1> <br><br>
+                <p><b>Esse quiz não tem resposta certa !!</b></p>
                 <p>Gostaria de participar ?</p><br>
                 <div class="botao">
                     <button onclick="proxima()">Começar</button>
@@ -92,10 +93,10 @@
             <div class="Perguntas" id="primeira_pergunta" style="display: none;">
                 <h1>1° Pergunta</h1> <br><br>
                 <p>Qual é a sua experiência com motos de trilha?</p><br>
-                <i> <input name="primeira" value="Iniciante" type="checkbox"> Sou iniciante</i> <br> <br>
-                <i> <input name="primeira" value="intermediário" type="checkbox"> Tenho experiência intermediária</i>
+                <i> <input name="primeira" value="Iniciante" type="radio"> Sou iniciante</i> <br> <br>
+                <i> <input name="primeira" value="intermediário" type="radio"> Tenho experiência intermediária</i>
                 <br> <br>
-                <i> <input name="primeira" value="Avançado" type="checkbox"> Sou avançado/profissional </i> <br><br>
+                <i> <input name="primeira" value="Avançado" type="radio"> Sou avançado/profissional </i> <br><br>
                 <div class="botao">
                     <button onclick="proxima()">Próxima</button>
                 </div>
@@ -107,20 +108,20 @@
             <!-- <div id="segunda_pergunta">
 
             <p>Qual é a marca da sua moto de trilha atual? </p>
-            <i> <input value="4" type="checkbox"> Honda</i>
-            <i> <input value="5" type="checkbox"> Yamaha</i>
-            <i> <input value="6" type="checkbox"> KTM</i>
-            <i> <input value="7" type="checkbox"> Kawasaki</i>
-            <i> <input value="8" type="checkbox"> Suzuki</i>
+            <i> <input value="4" type="radio"> Honda</i>
+            <i> <input value="5" type="radio"> Yamaha</i>
+            <i> <input value="6" type="radio"> KTM</i>
+            <i> <input value="7" type="radio"> Kawasaki</i>
+            <i> <input value="8" type="radio"> Suzuki</i>
 
         </div> -->
             <div class="Perguntas" id="segunda_pergunta" style="display: none;">
                 <h1>2° Pergunta</h1> <br><br>
                 <p>Que tipo de trilha você prefere?</p>
                 <br>
-                <i> <input name="segunda" value="Leve e fácil" type="checkbox"> Trilha leve e fácil</i><br><br>
-                <i> <input name="segunda" value="Moderada" type="checkbox"> Trilha moderada</i><br><br>
-                <i> <input name="segunda" value="Desafiadora" type="checkbox"> Trilha desafiadora e técnica</i><br><br>
+                <i> <input name="segunda" value="Leve e fácil" type="radio"> Trilha leve e fácil</i><br><br>
+                <i> <input name="segunda" value="Moderada" type="radio"> Trilha moderada</i><br><br>
+                <i> <input name="segunda" value="Desafiadora" type="radio"> Trilha desafiadora e técnica</i><br><br>
                 <button onclick="proxima()">Próxima</button>
             </div>
             <!-- 
@@ -128,19 +129,19 @@
 
             <p> Com que frequência você participa de eventos ou competições de motocross?</p>
 
-            <i> <input value="9"  type="checkbox"> Nunca</i>
-            <i> <input value="10" type="checkbox"> Raramente</i>
-            <i> <input value="11" type="checkbox"> Algumas vezes por ano</i>
-            <i> <input value="12" type="checkbox"> Regularmente</i>
+            <i> <input value="9"  type="radio"> Nunca</i>
+            <i> <input value="10" type="radio"> Raramente</i>
+            <i> <input value="11" type="radio"> Algumas vezes por ano</i>
+            <i> <input value="12" type="radio"> Regularmente</i>
         </div> -->
 
             <!-- <div id="quinta_pergunta">
             <p>Quais são os principais fatores que você considera ao escolher um lugar para trilha?</p>
 
-            <i> <input value="14"  type="checkbox"> Beleza natural</i>
-            <i> <input  value="15" type="checkbox"> Nível de dificuldade </i>
-            <i> <input  value="16" type="checkbox"> Proximidade de casa </i>
-            <i> <input  value="17" type="checkbox"> Recomendações de amigos</i>
+            <i> <input value="14"  type="radio"> Beleza natural</i>
+            <i> <input  value="15" type="radio"> Nível de dificuldade </i>
+            <i> <input  value="16" type="radio"> Proximidade de casa </i>
+            <i> <input  value="17" type="radio"> Recomendações de amigos</i>
 
         </div> -->
 
@@ -148,19 +149,19 @@
             <div class="Perguntas" id="terceira_pergunta" style="display: none;">
                 <h1>3° Pergunta</h1> <br><br>
                 <p>Você costuma fazer trilhas sozinho ou em grupo?</p><br>
-                <i> <input name="terceira" value="Sozinho" type="checkbox"> Sempre sozinho</i><br><br>
-                <i> <input name="terceira" value="Grupo" type="checkbox"> Sempre em grupo</i><br><br>
-                <i> <input name="terceira" value="Depende" type="checkbox"> Depende</i><br><br>
+                <i> <input name="terceira" value="Sozinho" type="radio"> Sempre sozinho</i><br><br>
+                <i> <input name="terceira" value="Grupo" type="radio"> Sempre em grupo</i><br><br>
+                <i> <input name="terceira" value="Depende" type="radio"> Depende</i><br><br>
                 <button onclick="proxima()">Próxima</button>
             </div>
 
             <div class="Perguntas" id="quarta_pergunta" style="display: none;">
                 <h1>4° Pergunta</h1> <br><br>
                 <p>Qual é o equipamento de segurança você acha mais importante ?</p><br>
-                <i> <input name="quarta" value="Capacete" type="checkbox"> Capacete</i><br><br>
-                <i> <input name="quarta" value="Luvas" type="checkbox"> Luvas</i><br><br>
-                <i> <input name="quarta" value="Botas" type="checkbox"> Botas</i><br><br>
-                <i> <input name="quarta" value=" Joelheiras e cotoveleiras" type="checkbox"> Joelheiras e
+                <i> <input name="quarta" value="Capacete" type="radio"> Capacete</i><br><br>
+                <i> <input name="quarta" value="Luvas" type="radio"> Luvas</i><br><br>
+                <i> <input name="quarta" value="Botas" type="radio"> Botas</i><br><br>
+                <i> <input name="quarta" value=" Joelheiras e cotoveleiras" type="radio"> Joelheiras e
                     cotoveleiras</i><br><br>
                 <button onclick="proxima()">Próxima</button>
             </div>
@@ -173,8 +174,22 @@
             <div class="Perguntas" id="Fechamento" style="display: none;">
                 <h1>Acabou</h1>
             </div>
-        </div>
+            <div class="Perguntas" id="bem_vindo" style="display: none;">
+                <h1>SafeTrail Quiz  </h1> <br><br>
+                <p><b>Esse quiz ira testar seus conhecimentos !!</b></p>
+                <p>Gostaria de participar ?</p><br>
+                <div class="botao">
+                    <button onclick="proximoquiz()">Começar</button>
+                </div>
 
+
+
+            </div>
+
+        </div>
+<div class="Pergunta">
+
+</div>
     </div>
 </body>
 

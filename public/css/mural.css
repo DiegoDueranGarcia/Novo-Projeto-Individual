@@ -1,0 +1,142 @@
+
+#navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    width: 200px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', 'Helvetica', sans-serif;
+  }
+  
+  #navbar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+  }
+  
+  #navbar ul a {
+    text-decoration: none;
+    color: black;
+    padding: 10px 0;
+    width: 100%;
+    display: block;
+    transition: background-color 0.3s ;
+  }
+  
+  #navbar ul a:hover {
+    background-color: #e0e0e0;
+  }
+  
+/* Estilos para a seção de avisos */
+.avisos {
+    width: 600px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-left: 200px; 
+}
+
+/* Estilos para o formulário de postagem */
+.div-form {
+    background-color: #f5f8fa;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.div-form input, .div-form textarea {
+    width: 96%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #e1e8ed;
+    border-radius: 5px;
+    font-family: 'Arial', 'Helvetica', sans-serif;
+}
+
+.div-form button {
+    background-color: #1da1f2;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.div-form button:hover {
+    background-color: #0d95e8;
+}
+
+/* Estilos para o mural de histórias */
+.div-results {
+    margin-top: 20px;
+}
+
+.feed-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Estilos para cada publicação */
+.publicacao {
+    background-color: #ffffff;
+    border: 1px solid #e1e8ed;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', 'Helvetica', sans-serif;
+}
+
+.publicacao span {
+    display: block;
+    margin-bottom: 10px;
+    color: #657786;
+}
+
+.publicacao .publicacao-titulo {
+    font-size: 18px;
+    font-weight: bold;
+    color: #14171a;
+}
+
+.publicacao .publicacao-nome {
+    font-size: 14px;
+    color: #657786;
+}
+
+.publicacao .publicacao-descricao {
+    font-size: 16px;
+    color: #14171a;
+}
+
+.div-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.publicacao-btn-editar, .publicacao-btn-deletar {
+    background-color: #1da1f2;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.publicacao-btn-editar:hover, .publicacao-btn-deletar:hover {
+    background-color: #0d95e8;
+}

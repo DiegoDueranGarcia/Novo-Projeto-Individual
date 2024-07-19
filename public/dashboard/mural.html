@@ -6,11 +6,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SafeTrail | Avisos</title>
+    <title>SafeTrail | Chat</title>
 
-    <link rel="stylesheet" href="./../css/dashboards.css">
-    <link rel="stylesheet" href="./../css/estilo.css" />
-    <!-- <link rel="stylesheet" href="../css/stylesite.css"> -->
+    <!-- <link rel="stylesheet" href="./../css/dashboards.css"> -->
+    <!-- <link rel="stylesheet" href="./../css/estilo.css" /> -->
+<link rel="stylesheet" href="../css/mural.css">
 
     <script src="../js/sessao.js"></script>
     <script src="./../js/alerta.js"></script>
@@ -21,7 +21,7 @@
         rel="stylesheet">
 </head>
 
-<body onload="validarSessao(), atualizarFeed()" style="background-color: rgb(150, 144, 144);">
+<body  onload="validarSessao(), atualizarFeed()" style="background-color: aliceblue;">
     <nav id="navbar">
 
         <ul>
@@ -78,20 +78,20 @@
                             <label>
                               
                                 <br>
-                                <input placeholder="  Título:" name="titulo" id="titulo" maxlength="100" type="text">
+                                <input placeholder="  Assunto:" name="titulo" id="titulo" maxlength="100" type="text">
                             </label>
                             <br>
                             <br>
                             <label>
                                 <br>
-                                <textarea placeholder="  Descrição (máximo de 250 caracteres):" name="descricao" id="textarea_descricao" maxlength="250" rows="5"></textarea>
+                                <textarea placeholder="  Comentário (máximo de 250 caracteres):" name="descricao" id="textarea_descricao" maxlength="250" rows="5"></textarea>
                             </label>
                             <br>
                             <br>
                             <button>Enviar</button>
                         </form>
                     </div>
-                    <h1>Mural de Histórias</h1>
+                    <h1>Publicações</h1>
                     <div class="div-results">
                         <div id="feed_container" class="feed-container">
                         </div>
@@ -138,7 +138,7 @@
                 window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
                 window.location = "/dashboard/mural.html";
                 limparFormulario();
-                finalizarAguardar();
+                // finalizarAguardar();
             } else if (resposta.status == 404) {
                 window.alert("Deu 404!");
             } else {
@@ -146,12 +146,21 @@
             }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
+            // finalizarAguardar();
         });
 
         return false;
 
     }
+    // window.onload=verificareditar();
+function verificareditar(){
+if(sessionStorage.NOME_USUARIO!==publicacao.nome){
+    btnEditar.style.display="none";
+}
+else{
+    btnEditar.style.display="block";
+}
+}
 
     function editar(idAviso) {
         sessionStorage.ID_POSTAGEM_EDITANDO = idAviso;
@@ -204,7 +213,7 @@
 
                         // criando e manipulando elementos do HTML via JavaScript
                         var divPublicacao = document.createElement("div");
-                        var spanID = document.createElement("span");
+                        // var spanID = document.createElement("span");
                         var spanTitulo = document.createElement("span");
                         var spanNome = document.createElement("span");
                         var divDescricao = document.createElement("div");
@@ -213,10 +222,10 @@
                         var btnDeletar = document.createElement("button");
 
 
-                        spanID.innerHTML = "ID: <b>" + publicacao.idAviso + "</b>";
-                        spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
+                        // spanID.innerHTML = "ID: <b>" + publicacao.idAviso + "</b>";
+                        spanTitulo.innerHTML = "Assunto: <b>" + publicacao.titulo + "</b>";
                         spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
-                        divDescricao.innerHTML = "Descrição: <b>" + publicacao.descricao + "</b>";
+                        divDescricao.innerHTML = "Comentário: <b>" + publicacao.descricao + "</b>";
                         btnEditar.innerHTML = "Editar";
                         btnDeletar.innerHTML = "Deletar";
 
@@ -236,7 +245,7 @@
                         btnDeletar.id = "btnDeletar" + publicacao.idAviso;
                         btnDeletar.setAttribute("onclick", `deletar(${publicacao.idAviso})`);
 
-                        divPublicacao.appendChild(spanID);
+                        // divPublicacao.appendChild(spanID);
                         divPublicacao.appendChild(spanNome);
                         divPublicacao.appendChild(spanTitulo);
                         divPublicacao.appendChild(divDescricao);
@@ -246,14 +255,14 @@
                         feed.appendChild(divPublicacao);
                     }
 
-                    finalizarAguardar();
+                    // finalizarAguardar();
                 });
             } else {
                 throw ('Houve um erro na API!');
             }
         }).catch(function (resposta) {
             console.error(resposta);
-            finalizarAguardar();
+            // finalizarAguardar();
         });
     }
 

@@ -6,11 +6,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SafeTrail | Página Inicial</title>
+    <title>SafeTrail | Editar</title>
 
-    <link rel="stylesheet" href="../css/stylesite.css">
-    <link rel="stylesheet" href="./../css/dashboards.css">
+    <!-- <link rel="stylesheet" href="../css/stylesite.css">
+    <link rel="stylesheet" href="./../css/dashboards.css"> -->
     <!-- <link rel="stylesheet" href="./../css/estilo.css" /> -->
+    <link rel="stylesheet" href="../css/mural.css">
     <script src="../js/sessao.js"></script>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -19,35 +20,35 @@
         rel="stylesheet">
 </head>
 
-<body onload="validarSessao(), listarInfosDeUm()" style="background-color: #161618;">
+<body onload="validarSessao(), listarInfosDeUm()" style="background-color: rgb(58, 58, 58);">
     <!-- <body onload="validarSessao()"> -->
 
-        <nav id="navbar" >
-               
+        <nav id="navbar">
+
             <ul>
                 <div>
                     <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
                 </div>
     
-                <a href="./dashboard.html">
+                <a href="./cards.html ">
                     <li>
-                    <p>
-                        Inicio
-                    </p>
+                        <p>
+                            Inicio
+                        </p>
                     </li>
                 </a>
     
-             
+    
                 <a href="./mural.html">
                     <li>
     
-                        <p>Mural de Avisos</p>
+                        <p>Chat</p>
                     </li>
                 </a>
-                <a href="./cards.html">
+                <a href="./dashboard.html">
                     <li>
     
-                        <p>Aquários</p>
+                        <p>Dashboard</p>
                     </li>
                 </a>
                 <!-- <a href="sobre_mim.html">
@@ -55,22 +56,23 @@
                 </a> -->
                 <a href="../index.html">
                     <li>
-                    <p>
-                       Sair
-                    </p>
+                        <p>
+                            Sair
+                        </p>
                     </li>
                 </a>
-               
+    
     
             </ul>
-        </nav> 
+        </nav>
+    
     
 
         <div class="dash-right">
-
+<br><br><br>
             <div class="avisos">
                 <div class="container">
-                    <h1>Editar um aviso</h1>
+                    <h1>Edite sua mensagem</h1>
                     <div class="div-form">
                         <label>
                             ID:
@@ -87,13 +89,12 @@
                             Título:
                             <br>
                             <input id="input_titulo" maxlength="100" type="text" style="color: rgb(196, 196, 196)"
-                                disabled>
+                                disablede>
                         </label>
                         <br>
                         <label>
-                            Descrição (máximo de 250 caracteres):
                             <br>
-                            <textarea id="textarea_descricao" maxlength="250" rows="5"></textarea>
+                            <textarea placeholder=" Descrição (máximo de 250 caracteres): " id="textarea_descricao" maxlength="250" rows="5"></textarea>
                         </label>
                         <br>
                         <button onclick="editar()">Editar</button>
