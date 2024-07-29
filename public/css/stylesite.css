@@ -1,426 +1,3 @@
-/* @font-face {
-    font-family: MotoVerse;
-    src: url(../Fontes/moto_verse/moto-verse.ttf);
-}
-
-@font-face {
-    font-family: BlackLive;
-    src: url(../Fontes/a_black_lives/aBlackLives.ttf);
-}
-
-@font-face {
-    font-family: LemonMilk;
-    src: url(../Fontes/lemon_milk/LEMONMILK-Light.otf);
-}
-
-@font-face {
-    font-family: LemonTexto;
-    src: url(../Fontes/lemon_milk/LEMONMILK-Regular.otf);
-}
-
-
-* {
-    margin: 0px;
-    padding: 0%;
-    max-width: 100%;
-
-}
-
-body::-webkit-scrollbar {
-    display: none;
-}
-
-#navbar h1 {
-    font-family: MotoVerse;
-    color: #FF8E00;
-}
-
-
-
-
-.entrada {
-    display: flex;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-
-.entrada img {
-    width: 100%;
-    height: 90vh;
-    margin: 0;
-
-
-}
-
-.entrada p {
-    display: flex;
-    position: absolute;
-
-    color: #FF8E00;
-
-    font-family: MotoVerse;
-    font-size: 100px;
-
-    text-shadow: #000000 10px 10px 5px;
-}
-
-.entrada b {
-    display: flex;
-    position: absolute;
-    width: 60%;
-
-    margin-top: 10%;
-    font-size: larger;
-    color: #ffffff;
-
-    font-family: Arial, Helvetica, sans-serif;
-
-    text-shadow: #000000 5px 5px 5px;
-}
-
-
-
-#navbar {
-    display: flex;
-    width: 100%;
-    height: 80px;
-    align-items: center;
-    flex-direction: row;
-    justify-content: center;
-    background-color: #ffffff;
-    position: sticky;
-    top: 0%;
-    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.5);
-    font-family: Arial, Helvetica, sans-serif;
-
-
-}
-
-#navbar img {
-    width: 50px;
-    margin-right: 20px;
-}
-
-#navbar ul {
-    display: flex;
-    width: 80%;
-    align-items: center;
-    justify-content: space-between;
-
-}
-
-#navbar a {
-    text-decoration: none;
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    height: 50px;
-    max-width: 150px;
-}
-/* 
-#navbar a:hover {
-
-    display: flex;
-    justify-content: center;
-
-    background-color: #15141494;
-} 
-
-#navbar li {
-    display: flex;
-    justify-content: space-around;
-    color: #000000;
-}
-
-#navbar .fixed {
-    position: sticky;
-    top: 0%;
-    left: 0%;
-
-}
-
-#navbar li:hover {
-    display: flex;
-
-    font-weight: bold;
-
-}
-
-#navbar .botao_logincadastro {
-    width: 100px;
-    display: flex;
-    justify-content: center;
-    height: 50px;
-  
-    background-color: rgb(92, 0, 0);
-}
-#navbar .botao_logincadastro li{
-    color: white;
-}
-
-.botao_logincadastro {
-   
-    border-radius: 10px;
-}
-
-/* #navbar .botao_logincadastro:hover{
-
-
-  
-} 
-.divsao {
-    color: #000000;
-}
-
-
-
-
-.mae_1 {
-    display: flex;
-    flex-direction: row;
-    height: 700px;
-    width: 100%;
-    align-items: center;
-    background-color: #151414;
-
-
-}
-
-.filho {
-    display: flex;
-    flex-direction: row;
-    color: #000000;
-
-}
-#home{
-    /* background-image: url(../assets/imgs/2motostrilhacurva.jpg); 
-background-size: cover;
-}
-
-.filho_img {
-    display: flex;
-    flex-direction: row;
-    margin-left: 10%;
-    align-items: center;
-}
-.filho_img_oque_é {
-    display: flex;
-    flex-direction: row;
-    margin-right: 10%;
-    align-items: center;
-}
-.container {
-
-    display: flex;
-    width: 50%;
-    flex-direction: column;
-    height: 500px;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-left: 100px;
-    margin-right: 50px;
-
-}
-.container h1{ 
-    margin-top: 150px;
-
-    font-family: LemonMilk;
-    margin-bottom: 10%;
-}
-.container {
-
-    display: flex;
-    width: 50%;
-    flex-direction: column;
-    height: 500px;
-
-    margin-left: 20px;
-
-
-
-}
-.container ul{
-    display: flex;
-    height: 70%;
-    flex-direction:column;
-    margin-bottom: 70px;
-    justify-content: space-evenly;
-}
-
-.container h1 {
-    display: flex;
-    margin-top: 20%;
-    margin-bottom: 10%;
-    font-family: LemonMilk;
-}
-
-.container p {
-    display: flex;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.div {
-    width: 100%;
-    height: 200px;
-    background-color: #000000;
-}
-
-.mae_2 {
-    display: flex;
-    flex-direction: column;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #ffffff;
-    width: 100%;
-
-
-
-}
-
-h3 {
-    font-size: 30px;
-    font-family: LemonMilk;
-}
-
-.trilhas {
-    font-family: Roboto, -apple-system, BlinkMacSystemFont, Helvetica Neue, Arial, sans-serif;
-    align-items: center;
-
-    display: flex;
-    width: 100%;
-    height: 200px;
-    font-family: LemonMilk;
-    font-size: 10px;
-    margin-top: 70px;
-    flex-direction: column;
-
-
-}
-
-.trilhas h1 {
-    width: 100%;
-    text-align: left;
-    font-size: 50px;
-    text-align: center;
-}
-
-hr {
-
-    width: 100%;
-}
-
-.container_pai {
-    display: flex;
-    width: 100%;
-    /* background-color: #000000; 
-    flex-direction: column;
-
-    align-items: center;
-
-
-}
-
-
-.container_2 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 80vh;
-    height: 450px;
-    color: #ffffff;
-    background-color: rgb(57, 57, 57);
-    text-align: left;
-
-}
-
-.container_2 h3 {
-    width: 100%;
-    margin-top: 40px;
-    margin-left: 100px;
-    font-size: large;
-}
-
-.container_2 b {
-    width: 100%;
-    margin-bottom: 20px;
-    color: #ffffff;
-    margin-left: 100px;
-    font-family: Arial, Helvetica, sans-serif;
-
-}
-
-.container_2 i {
-    width: 80%;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-top: 20px;
-
-
-}
-
-
-.container_img {
-    display: flex;
-
-    flex-direction: row;
-    margin-left: 20px;
-}
-
-.mae_2 img {
-    width: 35%;
-
-
-
-}
-
-
-
-
-.estatistica {
-    display: flex;
-    width: 100%;
-    margin-left: 20px;
-
-    flex-direction: column;
-
-
-}
-
-.estatistica em {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-family: LemonTexto;
-    color: red;
-
-}
-
-.footer {
-    display: flex;
-    margin-top: 30px;
-    width: 100%;
-    height: 50px;
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-   font-family: Arial, Helvetica, sans-serif;
-   color: white;
-    background-color: #000000;
-}
-.footer h1{
-    color: orange;
-    font-family: MotoVerse;
-    background-color: #000000;
-}
-.Sobre_Mim {
-    display: flex;
-    align-items: center;
-    background-color: #645252;
-    width: 100%;
-    height: 200px;
-} */
-
 
 @font-face {
     font-family: MotoVerse;
@@ -449,8 +26,8 @@ hr {
 }
 
 body {
-    background-color: #121212;
-    color: #FFFFFF;
+    background-color: #ffffff;
+    color: #000000;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -493,72 +70,11 @@ body::-webkit-scrollbar {
     color: #ffffff;
     text-shadow: #000000 5px 5px 5px;
 }
-
-/* #navbar {
-    display: flex;
-    width: 100%;
-    height: 80px;
-    align-items: center;
-    flex-direction: row;
-    justify-content: center;
-    background-color: #333333;
-    position: sticky;
-    top: 0%;
-    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.5);
-}
-
-#navbar img {
-    width: 50px;
-    margin-right: 20px;
-}
-
-#navbar ul {
-    display: flex;
-    width: 80%;
-    align-items: center;
-    justify-content: space-between;
-}
-
-#navbar a {
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    height: 50px;
-    max-width: 150px;
-    color: #FFFFFF;
-}
-
-#navbar li {
-    display: flex;
-    justify-content: space-around;
-}
-
-#navbar li:hover {
-    font-weight: bold;
-}
-
-#navbar .botao_logincadastro {
-    width: 100px;
-    display: flex;
-    justify-content: center;
-    height: 50px;
-    background-color: #FF8E00;
-}
-
-#navbar .botao_logincadastro li {
-    color: white;
-}
-
-.botao_logincadastro {
-    border-radius: 10px;
-} */
 #navbar {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #000000;
+    background-color: #818181;
     box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.5);
     position: sticky;
     top: 0;
@@ -648,67 +164,129 @@ body::-webkit-scrollbar {
     margin-bottom: 70px;
     justify-content: space-evenly;
 }
-
-.trilhas {
-    align-items: center;
+.container_praticas {
     display: flex;
-    width: 100%;
-    height: 200px;
-    font-family: LemonMilk;
-    font-size: 10px;
-    margin-top: 70px;
+    width: 50%;
     flex-direction: column;
+    height: 500px;
+    margin-left: 100px;
+    margin-right: 50px;
+}
+.container_praticas h1{
+    font-family: LemonMilk;
+}
+.container_praticas li{
+    padding: 25px;
 }
 
-.trilhas h1 {
-    width: 100%;
+#trilhas {
     text-align: center;
-    font-size: 50px;
-}
-
-hr {
-    width: 100%;
-    border-color: #444444;
+    padding: 20px;
+    background-color: #333;
+    color: white;
 }
 
 .container_pai {
     display: flex;
-    width: 100%;
     flex-direction: column;
     align-items: center;
+    padding: 20px;
 }
 
-.container_2 {
+.trilha {
+    display: flex;
+    flex-direction: row;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.trilha:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.trilha img {
+    width: 50%;
+    height: auto;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.trilha img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#trilhas {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
+
+.container_pai {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 80vh;
-    height: 450px;
-    background-color: #333333;
-    text-align: left;
-    color: #FFFFFF;
+    padding: 20px;
+}
+
+.trilha {
+    display: flex;
+    flex-direction: row;
+    background: white;
+    color: black;
+    border-radius: 10px;
+    margin-top: 20px;
+    transition: transform 0.3s ease;
+    width: 90%;
+}
+
+.trilha:hover {
+    transform: translateY(-5px);
+}
+
+.trilha img {
+    width: 50%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.trilha img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.788);
+}
+
+.container_2 {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
 }
 
 .container_2 h3 {
-    width: 100%;
-    margin-top: 40px;
-    margin-left: 100px;
-    font-size: large;
+    margin-top: 0;
+    color: #333;
 }
 
 .container_2 b {
-    width: 100%;
-    margin-bottom: 20px;
-    color: #FF8E00;
-    margin-left: 100px;
+    display: block;
+    margin-top: 10px;
+    color: #555;
 }
 
-.container_2 i {
-    width: 80%;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-top: 20px;
+.container_2 p {
+    margin-top: 10px;
+    color: #666;
+    line-height: 1.6;
 }
-
 .container_img {
     display: flex;
     flex-direction: row;
@@ -732,7 +310,50 @@ hr {
     margin-bottom: 10px;
     color: #FF8E00;
 }
+.ods{
+    display: flex;
+    margin-top: 70px;
+    width: 100%;
+    justify-content: space-around;
+    flex-direction: row;
+}
+.ods_filho{
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    display: flex;
+}
+.ods_filho img{
+    width: 140px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
 
+}
+.ods_filho img:hover{
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.6);
+
+    
+}
+.container_2 ul {
+    margin-top: 10px;
+    padding-left: 20px;
+    list-style-type: none;
+    color: #555;
+    background-color: #f9f9f9;
+    border-left: 4px solid #333;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.container_2 ul li {
+    margin-bottom: 5px;
+}
+
+.container_2 ul li strong {
+    font-weight: bold;
+}
 .footer {
     display: flex;
     margin-top: 30px;
