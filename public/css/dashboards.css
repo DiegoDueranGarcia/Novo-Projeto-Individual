@@ -1,9 +1,10 @@
-
 @font-face {
   font-family: LemonMilk;
   src: url(../Fontes/lemon_milk/LEMONMILK-Light.otf);
 }
-
+body{
+  font-family: LemonMilk;
+}
 * {
   margin: 0;
   padding: 0;

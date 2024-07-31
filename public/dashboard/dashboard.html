@@ -75,42 +75,41 @@
         </ul>
     </nav>
 
-     <div class="alinhamento">
-    <div class="ranking" id="div_msg">
-        <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
-        <h2>Ranking de Preferências </h2>
-    </div>
+    <div class="alinhamento">
+        <div class="ranking" id="div_msg">
+            <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
+            <h2>Ranking de Preferências </h2>
+        </div>
 
-    <div class="container_grafico" id="graficos">
+        <div class="container_grafico" id="graficos">
 
-        <div class="grafico_marcas">
-            <h1>Marcas mais desejadas </h1>
+            <div class="grafico_marcas">
+                <h1>Marcas mais desejadas </h1>
 
 
 
-            <canvas id="myChartCanvas"></canvas>
+                <canvas id="myChartCanvas"></canvas>
 
+            </div>
         </div>
     </div>
-        </div>
-        <div>
+    <div>
 
+    </div>
+    <div class="alinhamento">
+        <div class="ranking" id="div_raking">
+            <h2>Ranking do nivel de experiencias </h2>
         </div>
-        <div class="alinhamento">
-            <div class="ranking" id="div_msg_">
-                <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
-                <h2>Ranking de Preferências </h2>
-            </div> 
-            <div class="container_grafico">
+        <div class="container_grafico">
 
-          
- <div class="grafico_marcas">
-            <h1>Experiencia dos usuarios:</h1>
-            <canvas id="myChartCanvasExperiencia"></canvas>
+
+            <div class="grafico_marcas">
+                <h1>Experiencia dos usuarios:</h1>
+                <canvas id="myChartCanvasExperiencia"></canvas>
+            </div>
         </div>
     </div>
-        </div>
-       
+
 
 
     </div>
@@ -125,6 +124,7 @@
 
     let proximaAtualizacao;
     var listaPref = [];
+    var listaExperiencia = [];
     window.onload = obterDadosGrafico();
     window.onload = obterDadosGraficoExperiencia();
 
@@ -140,8 +140,8 @@
     //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
     //     Para ajustar o "select", ajuste o comando sql em src/models
     // var listaExperiecia = 0
-   
-   
+
+
     // 11/07/2024, Foi adicionado um fetch para buscar os dados do banco
 
     function obterDadosGraficoExperiencia() {
@@ -150,10 +150,9 @@
                 response.json().then(function (respostaExperiencia) {
                     console.log(`Dados recebidos: ${JSON.stringify(respostaExperiencia)}`);
                     respostaExperiencia.reverse();
-                    // listaExperiecia = respostaExperiencia;
+                    listaExperiencia = respostaExperiencia
                     plotarGraficoExperiencia(respostaExperiencia)
-
-                    // gerarPorcentagemExperiencia()
+                    gerarPorcentagemExperiencia()
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
@@ -164,7 +163,25 @@
             });
     }
 
+    function gerarPorcentagemExperiencia() {
 
+        // 29/07/2024
+        var totalExperiencia = 0;
+
+        for (let g = 0; g < listaExperiencia.length; g++) {
+            totalExperiencia += Number(listaExperiencia[g].quantidade);
+            console.log("Obtendo a quantidade de cada experiencia...")
+        }
+        for (let d = 0; d < listaExperiencia.length; d++) {
+            console.log("Mostrando a quantidade...")
+            div_raking.innerHTML += `<p>${listaExperiencia[d].experiencia}: ${((listaExperiencia[d].quantidade / totalExperiencia) * 100).toFixed(2)}%</p>`
+        }
+
+
+
+
+
+    }
     // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
     // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
     // A função *plotarGrafico* também invoca a função *atualizarGrafico*
@@ -234,7 +251,6 @@
                     resposta.reverse();
                     listaPref = resposta;
                     plotarGrafico(resposta)
-
                     gerarPorcentagem()
                 });
             } else {

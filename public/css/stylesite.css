@@ -181,6 +181,7 @@ body::-webkit-scrollbar {
 
 #trilhas {
     text-align: center;
+    margin-top: 170px;
     padding: 20px;
     background-color: #333;
     color: white;
