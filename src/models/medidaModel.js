@@ -28,6 +28,18 @@ GROUP BY experiencia;`;
     return database.executar(instrucaoSql);
 }
 
+function buscarImportancia() {
+    // 02/08/2024
+    // Select mostrando o total as importancias escolhidas.
+
+    var instrucaoSql = `
+SELECT grau_de_importancia, COUNT(*) AS quantidade
+FROM Questionário
+GROUP BY grau_de_importancia;`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
 
 // function buscarMedidasEmTempoReal(req, res) {
 
@@ -50,6 +62,7 @@ GROUP BY experiencia;`;
 
 module.exports = {
     buscarPreferencia,
+    buscarImportancia,
     buscarExperiencia
     // buscarMedidasEmTempoReal
 

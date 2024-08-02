@@ -89,12 +89,13 @@
 
 
             </div>
-
+            
             <div class="Perguntas" id="primeira_pergunta" style="display: none;">
                 <h1>1° Pergunta</h1> <br><br>
                 <p>Qual é a sua experiência com motos de trilha?</p><br>
+                <i> <input name="primeira" value="Sem experiencia" type="radio"> Não tenho experiencia</i> <br> <br>
                 <i> <input name="primeira" value="Iniciante" type="radio"> Sou iniciante</i> <br> <br>
-                <i> <input name="primeira" value="intermediário" type="radio"> Tenho experiência intermediária</i>
+                <i> <input name="primeira" value="Intermediário" type="radio">Experiência intermediária</i>
                 <br> <br>
                 <i> <input name="primeira" value="Avançado" type="radio"> Sou avançado/profissional </i> <br><br>
                 <div class="botao">
@@ -148,10 +149,11 @@
 
             <div class="Perguntas" id="terceira_pergunta" style="display: none;">
                 <h1>3° Pergunta</h1> <br><br>
-                <p>Você costuma fazer trilhas sozinho ou em grupo?</p><br>
-                <i> <input name="terceira" value="Sozinho" type="radio"> Sempre sozinho</i><br><br>
-                <i> <input name="terceira" value="Grupo" type="radio"> Sempre em grupo</i><br><br>
-                <i> <input name="terceira" value="Depende" type="radio"> Depende</i><br><br>
+                <p>Me indique na sua opinião o grau de importancia da preservação nas trilhas</p>
+                <br>
+                <i> <input name="terceira" value="Baixa Importância" type="radio"> Baixa Importância</i><br><br>
+                <i> <input name="terceira" value="Média Importância" type="radio"> Média Importância</i><br><br>
+                <i> <input name="terceira" value="Alta Importância" type="radio"> Alta Importância</i><br><br>
                 <button onclick="proxima()">Próxima</button>
             </div>
 
@@ -224,63 +226,6 @@
             elementoY.style.display = "block";
         }
         }
-    
-    
-
-
-
-    // function pegarvalores() {
-
-    //     // Alteração feita no dia 04/07/2024
-    //     console.log("Pegando valores da primeira pergunta...")
-    //     var primeira_pergunta = document.getElementsByName("primeira")
-    //     for (let index = 0; index < primeira_pergunta.length; index++) {
-    //         if (primeira_pergunta[index].checked) {
-    //             console.log(`O valor da primeira pergunta é : ${primeira_pergunta[index].value}`);
-    //             primeirovalor = primeira_pergunta[index].value;
-    //             selecionado = true;
-    //         }
-
-    //     }
-
-    //     console.log("Pegando valores da segunda pergunta...")
-    //     var segunda_pergunta = document.getElementsByName("segunda")
-    //     for (let index = 0; index < segunda_pergunta.length; index++) {
-    //         if (segunda_pergunta[index].checked) {
-    //             console.log(`O valor da segunda pergunta é : ${segunda_pergunta[index].value}`);
-    //             segundovalor = segunda_pergunta[index].value;
-    //             selecionado = true;
-    //         }
-    //         // else {
-    //         // console.log("Nenhum valor encontrado !!")
-    //         // alert("Favor responder a segunda pergunta")
-    //         // erro = 1
-
-
-    //     }
-    //     // }
-
-    //     console.log("Pegando valores da terceira pergunta...")
-    //     var terceira_pergunta = document.getElementsByName("terceira")
-    //     for (let index = 0; index < terceira_pergunta.length; index++) {
-    //         if (terceira_pergunta[index].checked) {
-    //             console.log(`O valor da terceira pergunta é : ${terceira_pergunta[index].value}`);
-    //             terceirovalor = terceira_pergunta[index].value;
-    //             selecionado = true;
-    //         }
-
-    //     }
-    //     console.log("Pegando valores da quarta pergunta...")
-    //     var quarta_pergunta = document.getElementsByName("quarta")
-    //     for (let index = 0; index < quarta_pergunta.length; index++) {
-    //         if (quarta_pergunta[index].checked) {
-    //             console.log(`O valor da quarta pergunta é : ${quarta_pergunta[index].value}`);
-    //             quartovalor = quarta_pergunta[index].value;
-    //             selecionado = true;
-    //         }
-    //     }
-
-    // }
     function proxima() {
 
         // Alteração feita no dia 04/07/2024

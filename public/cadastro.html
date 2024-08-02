@@ -18,13 +18,10 @@
 
   </head>
   
-  <body">
-    <!-- <div id="div_aguardar" class="loading-div">
-      <img src="./assets/circle-loading.gif" id="loading-gif" />
-    </div> -->
+  <body>
         <div class="cadastro">
             <h1>CRIAR CONTA</h1>
-            <div>
+         
   
               <div class="input">
                 <input placeholder="Username" autocomplete="off" type="text" id="nome_input">
@@ -44,7 +41,7 @@
                 </select>
   
                 
-              </div>
+             
               <div class="botao">
   <button class="botao" onclick="cadastrar()">Cadastrar</button>
               </div>
@@ -52,12 +49,17 @@
                 <p>Você ja tem uma conta ?  <a href="login.html">Clique aqui</a></p>
   
             </div>
+            <div class="aguardarlogin">
+              <div id="div_aguardar" class="loading-div">
+                  <img src="./assets/circle-loading.gif" id="loading-gif">
+              </div>
+              <div id="div_erros_login"></div>
+          </div>
           </div>
       
   
   
-          <div id="div_erros_login"></div>
-        </div>
+      
       
     
   
@@ -70,10 +72,11 @@
 
 <script>
   function cadastrar() {
-    // aguardar();
+    aguardar();
 
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
+
     var nomeVar = nome_input.value;
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
@@ -89,11 +92,11 @@
       marcaVar == ""
 
     ) {
-      // cardErro.style.display = "block";
+      cardErro.style.display = "block";
       // mensagem_erro.innerHTML =
         "(Mensagem de erro para todos os campos em branco)";
 
-      // finalizarAguardar();
+      finalizarAguardar();
       return false;
     } else {
       setInterval(sumirMensagem, 5000);
@@ -128,14 +131,14 @@
           }, "2000");
 
           limparFormulario();
-          // finalizarAguardar();
+          finalizarAguardar();
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
         }
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-        // finalizarAguardar();
+        finalizarAguardar();
       });
 
     return false;
@@ -158,6 +161,6 @@
   // }
 
   function sumirMensagem() {
-    // cardErro.style.display = "none";
+    cardErro.style.display = "none";
   }
 </script>

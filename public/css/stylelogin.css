@@ -64,6 +64,12 @@ color: #fff;
     color: #333;
     font-weight: 600;
     margin-top: 10px;
+    transition-duration: 0.4s;
+}
+.botao :hover{
+  transform: scale(1.1);
+    color: rgb(144, 144, 144);
+    cursor: pointer;
 }
 .link-cadastro{
 font-size: 14px;

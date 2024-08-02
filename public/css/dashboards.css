@@ -39,14 +39,18 @@ body{
 #navbar ul a {
   text-decoration: none;
   color: black;
-  padding: 10px 0;
+
   width: 100%;
+  padding: 10px 0;
   display: block;
   transition: background-color 0.3s ;
 }
 
 #navbar ul a:hover {
   background-color: #e0e0e0;
+}
+#navbar p{
+  padding: 10px 0;
 }
 
 
@@ -77,6 +81,10 @@ canvas #myChartCanvas{
   width: 50% !important;
   height: 50% !important;
 }
+canvas #myChartCanvasImportancia{
+  width: 50% !important;
+  height: 100% !important;
+}
 .grafico_marcas {
   display: flex;
   flex-direction: column;
@@ -89,18 +97,40 @@ canvas #myChartCanvas{
   margin-bottom: 20px;
 }
 
-/* Estilo para o ranking */
+/* Estilo ranking */
+
 .ranking {
   width: 90%;
+  background-color:#212124;
+
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+  height: auto;
   margin-top: 30px;
-  max-width: 600px; /* Ajuste conforme necessário */
-  background-color: #ffffff;
-  padding: 20px;
+  max-width: 500px;
+  padding: 30px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
 }
-
+.ranking h2{
+  display: flex;
+  color: #ffffff;
+  margin-bottom: 20px;
+justify-content: center;
+}
+.ranking li{
+  background: white;
+  font-family: Arial, sans-serif;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  padding: 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 
 .div-form {
   display: flex;
@@ -139,7 +169,6 @@ canvas #myChartCanvas{
   background-color: #4694e8;
   box-shadow: 0 5px 15px rgb(0, 0, 0);
 }
-
 .div-form label {
   display: flex;
   justify-content: left;

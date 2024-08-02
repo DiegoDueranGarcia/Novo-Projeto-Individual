@@ -16,8 +16,10 @@ router.get("/preferencia", function (req, res) {
 router.get("/experiencia", function (req, res) {
     medidaController.buscarExperiencia(req, res);
 });
-// router.get("/tempo-real/:idAquario", function (req, res) {
-//     medidaController.buscarMedidasEmTempoReal(req, res);
-// })
+// 02/08/2024, Caminho para realizar a função buscarImportancia
+router.get("/importancia", function (req, res) {
+    medidaController.buscarImportancia(req, res);
+});
+
 
 module.exports = router;
