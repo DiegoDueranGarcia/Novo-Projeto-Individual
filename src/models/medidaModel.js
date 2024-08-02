@@ -22,7 +22,7 @@ function buscarExperiencia() {
     var instrucaoSql = `
 SELECT experiencia, COUNT(*) AS quantidade
 FROM Questionário
-GROUP BY experiencia;`;
+GROUP BY Questionário.experiencia ORDER BY quantidade`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -35,7 +35,19 @@ function buscarImportancia() {
     var instrucaoSql = `
 SELECT grau_de_importancia, COUNT(*) AS quantidade
 FROM Questionário
-GROUP BY grau_de_importancia;`;
+GROUP BY Questionário.grau_de_importancia ORDER BY quantidade;`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+function buscarTrilha() {
+    // 02/08/2024
+    // Select mostrando o total as trilhas escolhidas.
+
+    var instrucaoSql = `
+SELECT trilha_preferida, COUNT(*) AS quantidade
+FROM Questionário
+GROUP BY Questionário.trilha_preferida ORDER BY quantidade;`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -63,6 +75,7 @@ GROUP BY grau_de_importancia;`;
 module.exports = {
     buscarPreferencia,
     buscarImportancia,
+    buscarTrilha,
     buscarExperiencia
     // buscarMedidasEmTempoReal
 

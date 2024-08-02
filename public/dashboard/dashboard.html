@@ -11,8 +11,6 @@
 
 
     <link rel="stylesheet" href="./../css/dashboards.css">
-    <!-- <link rel="stylesheet" href="./../css/estilo.css" /> -->
-    <!-- <link rel="stylesheet" href="../css/stylesite.cq   ss"> -->
     <script src="../js/sessao.js"></script>
     <script src="./../js/alerta.js"></script>
 
@@ -94,15 +92,29 @@
 
     </div>
     <div class="alinhamento">
-        <div class="ranking" id="div_raking">
+        <div class="ranking" id="div_Trilha">
           
-            <h2>Ranking do nivel de experiencias </h2>
+            <h2>Ranking de Trilhas </h2>
         </div>
         <div class="container_grafico">
 
 
             <div class="grafico_marcas">
-                <h2>Experiencia dos usuarios:</h2>
+                <h2>Trilhas mais desejadas</h2>
+                <canvas id="myChartCanvasTrilhas"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="alinhamento">
+        <div class="ranking" id="div_raking">
+          
+            <h2>Ranking de experiencia </h2>
+        </div>
+        <div class="container_grafico">
+
+
+            <div class="grafico_marcas">
+                <h2>Experiencia com trilhas</h2>
                 <canvas id="myChartCanvasExperiencia"></canvas>
             </div>
         </div>
@@ -110,13 +122,13 @@
     <div class="alinhamento">
         <div class="ranking" id="div_raking_importancia">
           
-            <h2>Ranking da Importancia</h2>
+            <h2>Ranking de Importancia</h2>
         </div>
         <div class="container_grafico">
 
 
             <div class="grafico_marcas">
-                <h2>Grau de importancia ao Meio Ambiente:</h2>
+                <h2>Importancia de Preservação</h2>
                 <canvas id="myChartCanvasImportancia"></canvas>
             </div>
         </div>
@@ -137,9 +149,11 @@
     var listaPref = [];
     var listaExperiencia = [];
     var listaImportancia=[];
+    var listaTrilha=[];
     window.onload = obterDadosGrafico();
     window.onload = obterDadosGraficoExperiencia();
     window.onload = obterDadosGraficoImportancia();
+    window.onload = obterDadosGraficotrilha();
 
     // O gráfico é construído com três funções:
     // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
@@ -402,6 +416,7 @@
 
 
     function obterDadosGraficoImportancia() {
+                // 02/08/2024
         fetch(`/medidas/importancia/`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (respostaImportancia) {
@@ -431,7 +446,9 @@
         }
         for (let a = 0; a < listaImportancia.length; a++) {
             console.log("Mostrando a quantidade...")
-            div_raking_importancia.innerHTML += `<li><span> ${a+1}º </span> <h3>${listaImportancia[a].grau_de_importancia}</h3> ${((listaImportancia[a].quantidade / totalImportancia) * 100).toFixed(2)}%</li>`
+            div_raking_importancia.innerHTML += `<li><span> ${a+1}º </span> <h3>
+                ${listaImportancia[a].grau_de_importancia}</h3>
+                 ${((listaImportancia[a].quantidade / totalImportancia) * 100).toFixed(2)}%</li>`
         }
 
     }
@@ -439,7 +456,7 @@
     // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
     // A função *plotarGrafico* também invoca a função *atualizarGrafico*
     function plotarGraficoImportancia(respostaImportancia) {
-
+        // 02/08/2024
         console.log('iniciando plotagem do gráfico...');
 
         // Criando estrutura para plotar gráfico - labels
@@ -489,6 +506,102 @@
 
         let myChartImportancia = new Chart(
             document.getElementById(`myChartCanvasImportancia`),
+            config
+        );
+
+        // setTimeout(() => atualizarGrafico(myChart), 2000);
+    }
+    function obterDadosGraficotrilha() {
+                // 02/08/2024
+        fetch(`/medidas/trilha/`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (respostaTrilha) {
+                    console.log(`Dados recebidos: ${JSON.stringify(respostaTrilha)}`);
+                    respostaTrilha.reverse();
+                    listaTrilha = respostaTrilha
+                    plotarGraficoTrilha(respostaTrilha)
+                    gerarPorcentagemTrilha()
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    function gerarPorcentagemTrilha() {
+
+        // 02/08/2024
+        var totalTrilha = 0;
+
+        for (let m = 0; m < listaTrilha.length; m++) {
+            totalTrilha += Number(listaTrilha[m].quantidade);
+            console.log("Obtendo a quantidade de cada Trilha para rankig...")
+        }
+        for (let a = 0; a < listaTrilha.length; a++) {
+            console.log("Mostrando a quantidade...")
+            div_Trilha.innerHTML += `<li><span> ${a+1}º </span> <h3>
+                ${listaTrilha[a].trilha_preferida}</h3>
+                 ${((listaTrilha[a].quantidade / totalTrilha) * 100).toFixed(2)}%</li>`
+        }
+
+    }
+    // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+    // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+    // A função *plotarGrafico* também invoca a função *atualizarGrafico*
+    function plotarGraficoTrilha(respostaTrilha) {
+        // 02/08/2024
+        console.log('iniciando plotagem do gráfico...');
+
+        // Criando estrutura para plotar gráfico - labels
+        let labels = [];
+
+        // Criando estrutura para plotar gráfico - dados
+        let dados = {
+            labels: labels,
+
+            datasets: [{
+                label: ["Quantidade"],
+                data: [],
+                fill: false,
+                tension: 0.1
+            },
+            ]
+        };
+
+        console.log('----------------------------------------------')
+        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+        console.log(respostaTrilha)
+        // 02/08/2024
+        // Inserindo valores recebidos em estrutura para plotar o gráfico   
+        for (i = 0; i < respostaTrilha.length; i++) {
+            var registroTrilha = respostaTrilha[i];
+
+            labels.push(registroTrilha.trilha_preferida);
+            dados.datasets[0].data.push(registroTrilha.quantidade)
+
+        }
+
+        console.log('----------------------------------------------')
+        console.log('O gráfico será plotado com os respectivos valores:')
+        console.log('Labels:')
+        console.log(labels)
+        console.log('Dados:')
+        console.log(dados.datasets)
+        console.log('----------------------------------------------')
+
+        // Criando estrutura para plotar gráfico - config
+        const config = {
+            type: 'pie',
+            data: dados,
+        };
+
+        // Adicionando gráfico criado em div na tela
+
+        let myChartTrilhas = new Chart(
+            document.getElementById(`myChartCanvasTrilhas`),
             config
         );
 

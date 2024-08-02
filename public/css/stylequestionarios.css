@@ -6,7 +6,8 @@
 }
 
 body {
-    background-color: rgb(255, 255, 255);
+background-image: url(../assets/imgs/quizz.jpg);
+background-size: cover;
 }
 
 .Questionário {
@@ -21,14 +22,13 @@ body {
 
 .Perguntas {
     display: flex;
+    max-width: 500px;
     background-color: rgb(255, 255, 255);
-    width: 600px;
-    height:400px;
-   
-    padding: 20px;
+    padding: 30px;
     border-radius: 10px;
     box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.5);
 }
+
 @font-face {
     font-family: LemonMilk;
     src: url(../Fontes/lemon_milk/LEMONMILK-Light.otf);

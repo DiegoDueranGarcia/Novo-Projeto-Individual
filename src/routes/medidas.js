@@ -20,6 +20,10 @@ router.get("/experiencia", function (req, res) {
 router.get("/importancia", function (req, res) {
     medidaController.buscarImportancia(req, res);
 });
+// 02/08/2024, Caminho para realizar a função buscarTrilha
+router.get("/trilha", function (req, res) {
+    medidaController.buscarTrilha(req, res);
+});
 
 
 module.exports = router;

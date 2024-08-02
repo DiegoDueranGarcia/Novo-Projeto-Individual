@@ -21,8 +21,7 @@ body{
   width: 200px;
   height: 100vh;
   position: fixed;
-  top: 0;
-  left: 0;
+  border-right: 2px solid orange;
   /* box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.5); */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   font-family: 'Arial', 'Helvetica', sans-serif;
@@ -33,26 +32,37 @@ body{
   padding: 0;
   margin: 0;
   width: 100%;
-  text-align: center;
+margin-left: 30px;
 }
-
+ul h3{
+  display: flex;
+  margin-left: 10px;
+  margin-bottom:20px ;
+}
 #navbar ul a {
   text-decoration: none;
   color: black;
-
-  width: 100%;
-  padding: 10px 0;
+  width: 90%;
+  padding: 7px;
   display: block;
   transition: background-color 0.3s ;
+  transition-duration: 0.4s;
 }
 
-#navbar ul a:hover {
+/* #navbar ul a:hover {
   background-color: #e0e0e0;
-}
+  border-bottom:solid black ;
+  transform: scale(1);
+} */
 #navbar p{
   padding: 10px 0;
 }
-
+#navbar ul p:hover {
+  /* background-color: #fdfbfba5; */
+  /* border-radius: 10px; */
+  border-bottom:solid 2px black ;
+  transform: scale(1);
+}
 
 .dash-right {
   margin-left: 200px; 
@@ -81,10 +91,10 @@ canvas #myChartCanvas{
   width: 50% !important;
   height: 50% !important;
 }
-canvas #myChartCanvasImportancia{
+/* canvas #myChartCanvasImportancia{
   width: 50% !important;
   height: 100% !important;
-}
+} */
 .grafico_marcas {
   display: flex;
   flex-direction: column;
@@ -166,8 +176,7 @@ justify-content: center;
 }
 
 .div-form button:hover {
-  background-color: #4694e8;
-  box-shadow: 0 5px 15px rgb(0, 0, 0);
+  transform: scale(1.1);
 }
 .div-form label {
   display: flex;
@@ -249,12 +258,10 @@ padding: 20px;
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 12px;
-  transition: background-color 0.3s, box-shadow 0.3s;
+  transition-duration: 0.4s;
 }
 .publicacao button:hover{
-
-  background-color: #4694e8;
-  box-shadow: 0 5px 15px rgb(0, 0, 0);
+  transform: scale(1.1);
 }
 .container {
   display: flex;

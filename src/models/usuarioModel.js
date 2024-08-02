@@ -29,7 +29,7 @@ function cadastrar(nome, email, senha,fkMarca) {
 function bancoquestionario(Primeira,Segunda,Terceira,Quarta){
       // Alteração feita no dia 04/07/2024
     var instrucaoSql = `
-    INSERT INTO Questionário (experiencia,tipo_de_trilha,grau_de_importancia,equipamento_mais_importante) VALUES ('${Primeira}', '${Segunda}', '${Terceira}','${Quarta}');
+    INSERT INTO Questionário (experiencia,trilha_preferida,grau_de_importancia,equipamento_mais_importante) VALUES ('${Primeira}', '${Segunda}', '${Terceira}','${Quarta}');
 `;  
 console.log("Executando a instrução SQL: \n" + instrucaoSql);
 return database.executar(instrucaoSql);

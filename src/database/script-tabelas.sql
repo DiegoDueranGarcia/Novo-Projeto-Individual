@@ -1,18 +1,3 @@
--- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
--- Você precisa executar os comandos no banco de dados para criar as tabelas,
--- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
-
-/*
-comandos para mysql server
-*/
-
--- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
--- Você precisa executar os comandos no banco de dados para criar as tabelas,
--- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
-
-/*
-comandos para mysql server
-*/
 drop database SafeTrail;
 CREATE DATABASE SafeTrail;
 
@@ -43,10 +28,32 @@ experiencia VARCHAR (45)
 CREATE TABLE Questionário (
   idQuestionário INT PRIMARY KEY auto_increment,
   experiencia VARCHAR(45) NOT NULL ,
-  tipo_de_trilha VARCHAR(45) NOT NULL,
-  costume VARCHAR(45)NOT NULL ,
-  equipamento_mais_importante VARCHAR(100) NOT NULL
+  trilha_preferida VARCHAR(45) ,
+  grau_de_importancia VARCHAR(45),
+  equipamento_mais_importante VARCHAR(100)
 );
+SELECT grau_de_importancia, COUNT(*) AS quantidade
+FROM Questionário
+GROUP BY Questionário.grau_de_importancia ORDER BY quantidade;
+insert into Questionário values 
+(default,'Iniciante',' Leve e fácil',' Alta Importância','Capacete'),
+(default,'Intermediário',' Moderada',' Média Importância','Luvas'),
+(default,'Avançado','Desafiadora',' Baixa Importância',' Joelheiras e cotoveleiras'),
+(default,'Iniciante','Desafiadora',' Alta Importância','Botas');
+
+
+SELECT grau_de_importancia, COUNT(*) AS quantidade_importancia
+FROM Questionário
+GROUP BY grau_de_importancia;
+
+SELECT experiencia, COUNT(*) AS quantidade
+FROM Questionário
+GROUP BY experiencia;
+
+	
+
+
+
 select * from Questionário;	
 
 SELECT experiencia, COUNT(*) AS quantidade
@@ -72,6 +79,7 @@ INSERT INTO usuario (nome, email, senha, fkMarca) VALUES ('Juliana Ferreira', 'j
 INSERT INTO usuario (nome, email, senha, fkMarca) VALUES ('Fernanda Rocha', 'fernanda.rocha@example.com', 'senha222', 1);
 INSERT INTO usuario (nome, email, senha, fkMarca) VALUES ('Lucas Mendes', 'lucas.mendes@example.com', 'senha333', 2);
 INSERT INTO usuario (nome, email, senha, fkMarca) VALUES ('Camila Santos', 'camila.santos@example.com', 'senha444', 3);
+INSERT INTO usuario (nome, email, senha, fkMarca) VALUES ('Diego', 'diego.garcia@sptech.school', '12345', 2);
 select * from usuario;
 
 
@@ -93,5 +101,3 @@ CREATE TABLE aviso (
 	fk_usuario INT,
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 );
-
-

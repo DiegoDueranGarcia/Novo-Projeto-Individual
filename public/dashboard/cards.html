@@ -13,7 +13,7 @@
 
     <!-- <link rel="stylesheet" href="../css/stylesite.css"> -->
     <link rel="stylesheet" href="../css/stylequestionarios.css">
-    
+
     <!-- <link rel="stylesheet" href="./../css/dashboards.css"> -->
     <script src="../js/sessao.js"></script>
     <script src="../js/alerta.js"></script>
@@ -79,7 +79,7 @@
 
 
             <div class="Perguntas" id="bem_vindo" style="display: block;">
-                <h1>SafeTrail Quiz  </h1> <br><br>
+                <h1>SafeTrail Quiz </h1> <br><br>
                 <p><b>Esse quiz não tem resposta certa !!</b></p>
                 <p>Gostaria de participar ?</p><br>
                 <div class="botao">
@@ -89,11 +89,13 @@
 
 
             </div>
-            
+
             <div class="Perguntas" id="primeira_pergunta" style="display: none;">
                 <h1>1° Pergunta</h1> <br><br>
                 <p>Qual é a sua experiência com motos de trilha?</p><br>
-                <i> <input name="primeira" value="Sem experiencia" type="radio"> Não tenho experiencia</i> <br> <br>
+         
+                    <i> <input name="primeira" value="Sem experiencia" type="radio"> Não tenho experiencia</i> <br> <br>
+             
                 <i> <input name="primeira" value="Iniciante" type="radio"> Sou iniciante</i> <br> <br>
                 <i> <input name="primeira" value="Intermediário" type="radio">Experiência intermediária</i>
                 <br> <br>
@@ -118,11 +120,12 @@
         </div> -->
             <div class="Perguntas" id="segunda_pergunta" style="display: none;">
                 <h1>2° Pergunta</h1> <br><br>
-                <p>Que tipo de trilha você prefere?</p>
+                <p>Qual trilha você mais gostou do site ?</p>
                 <br>
-                <i> <input name="segunda" value="Leve e fácil" type="radio"> Trilha leve e fácil</i><br><br>
-                <i> <input name="segunda" value="Moderada" type="radio"> Trilha moderada</i><br><br>
-                <i> <input name="segunda" value="Desafiadora" type="radio"> Trilha desafiadora e técnica</i><br><br>
+                <i> <input name="segunda" value="Caminho dos Diamantes" type="radio">Caminho dos Diamantes</i><br><br>
+                <i> <input name="segunda" value="Trilha Casca Danta" type="radio">Trilha Casca Danta</i><br><br>
+                <i> <input name="segunda" value="Cachoeira do Fundão" type="radio">Cachoeira do Fundão</i><br><br>
+                <i> <input name="segunda" value="Nenhuma" type="radio">Nenhuma</i><br><br>
                 <button onclick="proxima()">Próxima</button>
             </div>
             <!-- 
@@ -169,15 +172,15 @@
             </div>
 
             <div class="Perguntas" id="terminar" style="display: none;">
-                <h1>Terminar</h1> <br><br>
-                <button onclick="enviar()">Terminar</button>
+                <br><br>
+                <button class="btn" onclick="enviar()">Enviar respostas</button>
             </div>
 
             <div class="Perguntas" id="Fechamento" style="display: none;">
-                <h1>Acabou</h1>
+                <h1>Obrigado por responder nosso quiz !!</h1>
             </div>
             <div class="Perguntas" id="bem_vindo" style="display: none;">
-                <h1>SafeTrail Quiz  </h1> <br><br>
+                <h1>SafeTrail Quiz </h1> <br><br>
                 <p><b>Esse quiz ira testar seus conhecimentos !!</b></p>
                 <p>Gostaria de participar ?</p><br>
                 <div class="botao">
@@ -189,9 +192,9 @@
             </div>
 
         </div>
-<div class="Pergunta">
+        <div class="Pergunta">
 
-</div>
+        </div>
     </div>
 </body>
 
@@ -200,32 +203,32 @@
     var segundovalor = null;
     var terceirovalor = null;
     var quartovalor = null;
- 
+
     // Alteração feita no dia 04/07/2024
     function enviar() {
-            fetch("/usuarios/bancoquestionario", {
-                method: "post",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    // ID_USUARIO:sessionStorage.ID_USUARIO 
-                    primeirovalorServer: primeirovalor,
-                    segundovalorServer: segundovalor,
-                    terceirovalorServer: terceirovalor,
-                    quartovalorServer: quartovalor,
-                    idUsuarioServer: sessionStorage.ID_USUARIO
-                })
-            }
+        fetch("/usuarios/bancoquestionario", {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // ID_USUARIO:sessionStorage.ID_USUARIO 
+                primeirovalorServer: primeirovalor,
+                segundovalorServer: segundovalor,
+                terceirovalorServer: terceirovalor,
+                quartovalorServer: quartovalor,
+                idUsuarioServer: sessionStorage.ID_USUARIO
+            })
+        }
         )
         var elemento5 = document.getElementById("terminar");
         var elementoY = document.getElementById("Fechamento");
-        
+
         if (elemento5.style.display == "block") {
             elemento5.style.display = "none";
             elementoY.style.display = "block";
         }
-        }
+    }
     function proxima() {
 
         // Alteração feita no dia 04/07/2024
